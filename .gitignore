@@ -3,3 +3,4 @@ out
 dist
 .eslintcache
 .cache
+.vscode
