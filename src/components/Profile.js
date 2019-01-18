@@ -106,28 +106,19 @@ class Profile extends Component {
                 <div className="profileBottom">
                     <Row>
                         <Col span={12}>
-                            <Button onClick={this.handleShowSettingOption} className="settings">
-                                <Icon type="setting" />
-                            </Button>
+                            <Button onClick={this.handleShowSettingOption} className="settings" icon="setting" />
                         </Col>
                         <Col span={12}>
-                            <Button className="logout">
-                                <Icon type="logout" />
+                            <Button className="logout" icon="logout">
                                 Signout
                             </Button>
                         </Col>
                     </Row>
                     {this.state.settingOptions === true && (
                         <div className="settingsOptions">
-                            <Button onClick={this.handleAbout} className="infoBttn">
-                                <Icon type="info-circle" theme="filled" />
-                            </Button>
-                            <Button onClick={this.handleAccountSettings} className="accountBttn">
-                                <Icon type="lock" theme="filled" />
-                            </Button>
-                            <Button onClick={this.handleOrgSettings} className="orgSettingsBttn">
-                                <Icon type="profile" theme="filled" />
-                            </Button>
+                            <Button onClick={this.handleAbout} className="infoBttn" icon="info-circle" />
+                            <Button onClick={this.handleAccountSettings} className="accountBttn" icon="lock" />
+                            <Button onClick={this.handleOrgSettings} className="orgSettingsBttn" icon="profile" />
                         </div>
                     )}
                 </div>
