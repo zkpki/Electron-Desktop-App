@@ -8,6 +8,7 @@
     "window": false
   },
   "rules": {
+    "linebreak-style": 0,
     "indent": [
       "error",
       4,
@@ -58,6 +59,11 @@
           ".js",
           ".jsx"
         ]
+      }
+    ],
+    "react/jsx-one-expression-per-line": [
+      true, {
+        "allow": "single-child"
       }
     ],
     "react/jsx-indent": [

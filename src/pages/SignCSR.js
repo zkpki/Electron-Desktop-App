@@ -17,7 +17,6 @@ class SignCSR extends Component {
     }
 
     render() {
-
         return (
             <Row>
                 <Col span={8}>

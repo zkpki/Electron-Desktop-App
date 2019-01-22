@@ -20,13 +20,13 @@ class CertificateDetails extends Component {
         });
     }
 
-    handleOk = (e) => {
+    handleOk = e => {
         this.setState({
             visible: false,
         });
     }
 
-    handleCancel = (e) => {
+    handleCancel = e => {
         this.setState({
             visible: false,
         });
@@ -48,28 +48,44 @@ class CertificateDetails extends Component {
                         Required
                     </div>
                     <Row style={marginBttm}>
-                        <Col span={12}><strong>Common Name *</strong></Col>
+                        <Col span={12}>
+                            <strong>
+                                Common Name *
+                            </strong>
+                        </Col>
                         <Col span={12}>Lorem Ipsum</Col>
                     </Row>
                     <Row style={marginBttm}>
-                        <Col span={12}><strong>Certificate Duration *</strong></Col>
+                        <Col span={12}>
+                            <strong>Certificate Duration *</strong>
+                        </Col>
                         <Col span={12}>1/2/2019 - 1/1/2020</Col>
                     </Row>
                     <Row style={marginBttm}>
-                        <Col span={12}><strong>Subject</strong></Col>
-                        <Col span={12}><small>litmusbox.com-US-CA-Tech-1234</small></Col>
+                        <Col span={12}>
+                            <strong>Subject</strong>
+                        </Col>
+                        <Col span={12}>
+                            <small>litmusbox.com-US-CA-Tech-1234</small>
+                        </Col>
                     </Row>
                     <Row style={marginBttm}>
-                        <Col span={12}><strong>Key Size</strong></Col>
+                        <Col span={12}>
+                            <strong>Key Size</strong>
+                        </Col>
                         <Col span={12}>RSA 4096</Col>
                     </Row>
                 </div>
                 <Row style={marginBttm}>
-                    <Col span={12}><strong>Version</strong></Col>
+                    <Col span={12}>
+                        <strong>Version</strong>
+                    </Col>
                     <Col span={12}>V3</Col>
                 </Row>
                 <Row style={marginBttm}>
-                    <Col span={12}><strong>Serial Number</strong></Col>
+                    <Col span={12}>
+                        <strong>Serial Number</strong>
+                    </Col>
                     <Col span={12}>12345678</Col>
                 </Row>
                 <div className="formContainer">
@@ -121,8 +137,12 @@ class CertificateDetails extends Component {
                             <Icon className="info" type="info-circle" />
                         </Col>
                         <Col span={24}>
-                            <div><small>sample1.zkpki.com</small></div>
-                            <div><small>sample1.zkpki.com</small></div>
+                            <div>
+                                <small>sample1.zkpki.com</small>
+                            </div>
+                            <div>
+                                <small>sample1.zkpki.com</small>
+                            </div>
                         </Col>
                     </Row>
                     <Row style={marginBttm}>
@@ -132,11 +152,17 @@ class CertificateDetails extends Component {
                         <Col span={12}>
                             <small>(OID: 2.5.29.15)</small>
                             <Icon className="info" type="info-circle" />
-                            <div><small>Critical</small></div>
+                            <div>
+                                <small>Critical</small>
+                            </div>
                         </Col>
                         <Col span={24}>
-                            <div><small>sample1.zkpki.com</small></div>
-                            <div><small>sample1.zkpki.com</small></div>
+                            <div>
+                                <small>sample1.zkpki.com</small>
+                            </div>
+                            <div>
+                                <small>sample1.zkpki.com</small>
+                            </div>
                         </Col>
                     </Row>
                     <Row style={marginBttm}>
