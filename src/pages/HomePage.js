@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
-
 import Logo from '../components/Logo';
 import LoginForm from '../components/LoginForm';
 import Footer from '../components/Footer';
@@ -17,19 +15,21 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <div>
-                <Row>
-                    <Col span={8}>
-                        <Logo />
-                        <LoginForm />
-                        <Footer title="What is zkPKI" />
-                    </Col>
-                    <Col span={16} className="contentWrapper">
-                        <BannerImage>
-                            <img alt="banner" src={banner} />
-                        </BannerImage>
-                    </Col>
-                </Row>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-group">
+                        <div className="pane-sm sidebar">
+                            <Logo />
+                            <LoginForm />
+                            <Footer title="What is zkPKI?" />
+                        </div>
+                        <div className="pane">
+                            <BannerImage>
+                                <img alt="banner" src={banner} />
+                            </BannerImage>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

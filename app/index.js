@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import path from 'path';
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow } from 'electron';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -26,7 +26,7 @@ const createWindow = () => {
         show: false,
         icon: __dirname + '/../src/assets/img/logo.png'
     });
-    mainWindow.setMenuBarVisibility(false);
+    //mainWindow.setMenuBarVisibility(false);
     // mainWindow.maximize();
 
     // and load the index.html of the app.
