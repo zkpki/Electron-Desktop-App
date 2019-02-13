@@ -1,8 +1,8 @@
 {
   "name": "zkpki-desktop-app",
-  "productName": "ZKPKI",
+  "productName": "0KPKI",
   "version": "1.0.0",
-  "description": "ZKPKI",
+  "description": "0KPKI",
   "main": "app/index.js",
   "private": true,
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "ZKPKI"
+    "name": "zkpki"
   },
   "license": "MIT",
   "config": {
@@ -51,12 +51,12 @@
         ]
       },
       "electronWinstallerConfig": {
-        "name": "ZKPKI"
+        "name": "0KPKI"
       },
       "electronWixMSIConfig": {
-        "name": "ZKPKI",
+        "name": "0KPKI",
         "appUserModelId": "com.zkpki",
-        "manufacturer": "ZKPKI",
+        "manufacturer": "0KPKI",
         "ui": {
           "enabled": true,
           "chooseDirectory": true
@@ -70,7 +70,7 @@
       },
       "windowsStoreConfig": {
         "packageName": "com.zkpki",
-        "name": "ZKPKI"
+        "name": "0KPKI"
       }
     }
   },
@@ -80,6 +80,8 @@
     }
   },
   "dependencies": {
+    "@zkpki/model": "0.0.0",
+    "@zkpki/storage": "0.0.0",
     "electron-compile": "6.4.4",
     "electron-squirrel-startup": "1.0.0",
     "react-hot-loader": "4.6.3",

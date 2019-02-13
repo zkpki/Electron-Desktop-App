@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -17,10 +17,16 @@ let mainWindow;
 const createWindow = () => {
     // Create the browser window.
     mainWindow = new BrowserWindow({
+        title: '0KPKI',
         width: 800,
         height: 600,
+        minWidth: 800,
+        minHeight: 600,
+        backgroundColor: '#002b36',
+        show: false,
+        icon: __dirname + '/../src/assets/img/logo.png'
     });
-
+    mainWindow.setMenuBarVisibility(false);
     // mainWindow.maximize();
 
     // and load the index.html of the app.
@@ -36,6 +42,11 @@ const createWindow = () => {
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         mainWindow = null;
+    });
+
+    mainWindow.on('ready-to-show', function() { 
+        mainWindow.show(); 
+        mainWindow.focus(); 
     });
 
     // Open the DevTools.
@@ -62,6 +73,10 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
+});
+
+app.on('browser-window-created',function(e,window) {
+    window.setMenu(null);
 });
 
 app.on('activate', () => {
