@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
+import Logo from '../components/Logo';
 import Footer from '../components/Footer';
 
 export default class HomePage extends Component {
@@ -14,6 +15,7 @@ export default class HomePage extends Component {
             <div className="window">
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
+                        <Logo />
                         <LoginForm />
                         <Footer title="What is zkPKI" />
                     </div>

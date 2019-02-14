@@ -11,14 +11,7 @@ const FormItem = Form.Item;
 
 class SignupForm extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-        };
-        this.handleSignupSuccess = this.handleSignupSuccess.bind(this);
-    }
-
-    handleSignupSuccess() {
+    handleSignupSuccess = () => {
         const { history } = this.props;
         history.push('/signupsuccess');
     }

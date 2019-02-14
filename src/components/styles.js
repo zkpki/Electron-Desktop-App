@@ -4,7 +4,7 @@ import { palette } from 'styled-theme';
 import { borderRadius } from '../settings/style-util';
 
 export const LogoWrapper = styled.div`
-   padding: 80px 0 30px;
+   padding: 5px 0 10px;
    align-items: center;
    justify-content: center;
    display: flex;
@@ -154,7 +154,7 @@ export const ProgressBarWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 20px 100px;  
+    padding: 20px;  
     height: 100%;
     .issuingProgressBar {
         margin-bottom: 30px;    

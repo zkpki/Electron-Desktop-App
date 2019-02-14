@@ -16,13 +16,13 @@ export default class OrganizationSettings extends Component {
     }
 
     render() {
-
         return (
-            <Row>
-                <Col span={8}>
-                    <LeftContentWrapper>
-                        <Logo />
-                        <div className="innerContent">
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <LeftContentWrapper>
+                            <Logo />
+                            <div className="innerContent">
                             <h3>Org Settings</h3>
                             <div className="formWrapper">
                                 <Form>
@@ -47,14 +47,15 @@ export default class OrganizationSettings extends Component {
                                 <li className="active">three</li>
                             </ul>
                         </div>
-                    </LeftContentWrapper>
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ContentInnerWrapper>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                    </ContentInnerWrapper>
-                </Col>
-            </Row>
+                        </LeftContentWrapper>
+                    </div>
+                    <div className="pane">
+                        <ContentInnerWrapper>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </ContentInnerWrapper>
+                    </div>
+                </div>
+            </div>
         );
     }
 

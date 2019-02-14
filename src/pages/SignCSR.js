@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {
-    Row, Col,
-} from 'antd';
 import { withRouter } from 'react-router-dom';
 import Profile from '../components/Profile';
 import CertificateDetails from '../components/CertificateDetails';
@@ -23,7 +20,7 @@ class SignCSR extends Component {
                     <div className="pane-one-third sidebar">
                         <Profile name="CA Common Name" title="CSR Review" details={demoText} info={demoText} />
                     </div>
-                    <div className="pane">    
+                    <div className="pane">
                         <ContentInnerWrapper>
                             <CertificateDetails buttonType="issue" />
                         </ContentInnerWrapper>

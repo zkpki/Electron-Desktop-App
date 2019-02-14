@@ -11,36 +11,51 @@ const FormItem = Form.Item;
 
 class LoginForm extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-        this.handleSignup = this.handleSignup.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
-    }
-
-    handleSignup() {
+    handleSignup = (e) => {
+        e.preventDefault();
         const { history } = this.props;
-
         history.push('/signup');
     }
 
-    handleLogin() {
-        const { history } = this.props;
-        let derivedKey = pbkdf2.pbkdf2Sync(passcode, username, 10000, 32, 'sha256')
-        const storage = require('@zkpki/storage').file;
-        history.push('/loginsuccess');
+    handleLogin = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields(async (err, values) => {
+            if (!err) {
+                const { history } = this.props;
+                const derivedKey = pbkdf2.pbkdf2Sync(values.passcode, values.username, 10000, 32, 'sha256')
+                const storage = require('@zkpki/storage').file;
+                try {
+                    const data = await storage.open(derivedKey, { path: "./" });
+                    const myCertificateAuthority = JSON.parse(await data.get());
+                    console.log(myCertificateAuthority);
+                    history.push('/loginsuccess');
+                }
+                catch (s_err) {
+                    // username/passcode was invalid
+                    windows.alert('Login Failed');
+                }
+            }
+        });
     }
 
     render() {
-
+        const { getFieldDecorator } = this.props.form;
         return (
             <LoginFormWrapper>
                 <Form justify="center" align="middle">
                     <FormItem>
-                        <Input placeholder="Username" />
+                        {getFieldDecorator('username', {
+                            rules: [{ required: true, message: 'Please input your username!' }],
+                        })(
+                            <Input placeholder="Username"  />
+                        )}
                     </FormItem>
                     <FormItem>
-                        <Input placeholder="Password" />
+                        {getFieldDecorator('password', {
+                            rules: [{ required: true, message: 'Please input your passcode!' }],
+                        })(
+                            <Input placeholder="Password" />
+                        )}
                     </FormItem>
                     <FormItem>
                         <Button onClick={this.handleLogin} type="default" block>
@@ -63,4 +78,6 @@ LoginForm.propTypes = {
     history: PropTypes.object,
 };
 
-export default withRouter(LoginForm);
+const WrappedLoginForm = Form.create({ name: 'login_form' })(LoginForm);
+
+export default withRouter(WrappedLoginForm);
