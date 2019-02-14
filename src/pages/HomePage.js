@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
-
-import Logo from '../components/Logo';
 import LoginForm from '../components/LoginForm';
 import Footer from '../components/Footer';
-import { BannerImage } from '../components/styles';
-
-const banner = 'https://via.placeholder.com/1000x1000?text=Banner-Image';
 
 export default class HomePage extends Component {
 
@@ -17,19 +11,18 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <div>
-                <Row>
-                    <Col span={8}>
-                        <Logo />
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
                         <LoginForm />
                         <Footer title="What is zkPKI" />
-                    </Col>
-                    <Col span={16} className="contentWrapper">
-                        <BannerImage>
-                            <img alt="banner" src={banner} />
-                        </BannerImage>
-                    </Col>
-                </Row>
+                    </div>
+                    <div className="pane">
+                        <div className="content-padding">
+                            Hello World
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

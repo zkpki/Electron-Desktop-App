@@ -7,7 +7,7 @@ const logo = 'https://via.placeholder.com/277x79?text=Logo';
 export default () => (
     <LogoWrapper>
         <Link to="/">
-            <img alt="logo" src={logo} />
+            <img alt="logo" src={logo} style={{maxWidth: '100%'}} />
         </Link>
     </LogoWrapper>
 );

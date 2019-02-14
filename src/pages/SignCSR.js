@@ -18,16 +18,18 @@ class SignCSR extends Component {
 
     render() {
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile name="CA Common Name" title="CSR Review" details={demoText} info={demoText} />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ContentInnerWrapper>
-                        <CertificateDetails buttonType="issue" />
-                    </ContentInnerWrapper>
-                </Col>
-            </Row>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile name="CA Common Name" title="CSR Review" details={demoText} info={demoText} />
+                    </div>
+                    <div className="pane">    
+                        <ContentInnerWrapper>
+                            <CertificateDetails buttonType="issue" />
+                        </ContentInnerWrapper>
+                    </div>
+                </div>
+            </div>
         );
     }
 
