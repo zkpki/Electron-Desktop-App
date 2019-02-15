@@ -156,7 +156,7 @@ export default ({appStore}) => {
                         key={route.to} 
                         path={route.to} 
                         exact={route.exact} 
-                        render={(props) => <route.component {...props} appStore={appStore} />}
+                        render={(props) => <route.component {...props} />}
                      />
                 )
             }

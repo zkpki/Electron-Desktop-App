@@ -12,13 +12,14 @@ const RadioGroup = Radio.Group;
 
 class CreateCA extends Component {
 
-    handleCreatingRootCA = () => {
+    handleCreateRootCA = () => {
         const { history } = this.props;
         history.push('/creating-root-ca');
     }
 
     render() {
-
+        const { getFieldDecorator } = this.props.form;
+        console.log(this.props.appStore);
         return (
             <div className="window">
                 <div className="window-content">
@@ -28,23 +29,31 @@ class CreateCA extends Component {
                             <div className="innerContent">
                                 <h3>Create CA</h3>
                                 <div className="formWrapper">
-                                    <Form>
+                                    <Form onSubmit={this.handleCreateRootCA}>
                                         <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="Common Name *">
-                                            <Input />
+                                            {getFieldDecorator('commonName', {
+                                                rules: [{ required: true, message: 'Please Input common name' }],
+                                            })(
+                                                <Input />
+                                            )}
                                         </FormItem>
                                         <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="Key Size">
-                                            <RadioGroup name="radiogroup" defaultValue={1}>
-                                                <Radio value={1}>RSA 2048</Radio>
-                                                <Radio value={2}>RSA 4096</Radio>
-                                            </RadioGroup>
+                                            {getFieldDecorator('key-size', {
+                                                initialValue: 'rsa-2048',
+                                            })(
+                                                <RadioGroup name="key-size">
+                                                    <Radio value="rsa-2048">RSA 2048</Radio>
+                                                    <Radio value="rsa-4096">RSA 4096</Radio>
+                                                </RadioGroup>
+                                            )}
                                         </FormItem>
-                                        <Button onClick={this.handleCreatingRootCA} className="nextBttn">Create</Button>
+                                        <Button htmlType="submit" className="nextBttn">Create</Button>
                                     </Form>
                                 </div>
                                 <ul>
                                     <li>one</li>
                                     <li>two</li>
-                                    <li className="active"onnepal435>three</li>
+                                    <li className="active">three</li>
                                 </ul>
                             </div>
                         </LeftContentWrapper>
@@ -62,6 +71,8 @@ class CreateCA extends Component {
 
 CreateCA.propTypes = {
     history: PropTypes.object,
+    appStore: PropTypes.object,
 };
 
-export default CreateCA;
+let form = Form.create({name: 'create_ca'})(CreateCA);
+export default form;

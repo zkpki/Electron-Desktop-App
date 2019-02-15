@@ -44,6 +44,11 @@ const createWindow = () => {
         mainWindow = null;
     });
 
+    mainWindow.on('ready-to-show', function() { 
+        mainWindow.show(); 
+        mainWindow.focus(); 
+    });
+
     // Open the DevTools.
     if (isDevMode) {
         const { enableLiveReload } = require('electron-compile');

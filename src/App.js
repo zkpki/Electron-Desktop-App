@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { LocaleProvider } from 'antd';
-import { Provider, Subscribe } from 'unstated';
+import { Provider } from 'react-redux';
 import enUs from 'antd/lib/locale-provider/en_US';
 import { ThemeProvider } from 'styled-components';
 import Routes from './routes';
 import AppHolder from './styles/commonStyle';
 import theme from './settings/theme';
-import AppContainer from './containers/App';
+import configureStore from './containers/setup';
 
 class App extends Component {
     render() {
@@ -18,10 +18,8 @@ class App extends Component {
                 <HashRouter>
                     <LocaleProvider locale={enUs}>
                         <AppHolder>
-                            <Provider>
-                                <Subscribe to={[AppContainer]}>
-                                    { (appStore) => <Routes appStore={appStore} />}
-                                </Subscribe>
+                            <Provider store={configureStore()} >
+                                <Routes />
                             </Provider>
                         </AppHolder>
                     </LocaleProvider>

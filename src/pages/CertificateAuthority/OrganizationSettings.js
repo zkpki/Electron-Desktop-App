@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Button, Form, Input,
 } from 'antd';
+import PropTypes from 'prop-types';
 import Logo from '../../components/Logo';
 import LeftContentWrapper from '../Auth/SignupSuccessStyle';
 import { ContentInnerWrapper } from '../../components/styles';
@@ -12,15 +13,16 @@ class OrganizationSettings extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { history, appStore } = this.props;
-        this.props.form.validateFields(async (err, values) => {
-            appStore.setOrg(values);
-            history.push('/create-ca');
+        const { history, form } = this.props;
+        form.validateFields(async (err, values) => {
+            if(!err) {
+                history.push('/create-ca');
+            }
         });
     }
 
     render() {
-        const { getFieldDecorator} = this.props.form;
+        const { getFieldDecorator} = this.props.form;    
         return (
             <div className="window">
                 <div className="window-content">
@@ -30,7 +32,7 @@ class OrganizationSettings extends Component {
                             <div className="innerContent">
                             <h3>Org Settings</h3>
                             <div className="formWrapper">
-                                <Form onSubmit={this.handleSubmit}>
+                                 <Form onSubmit={this.handleSubmit}>
                                     <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="Organization Name">
                                         {getFieldDecorator('orgName', {
                                             rules: [{ required: true, message: 'Please input your organization name!' }],
@@ -60,7 +62,7 @@ class OrganizationSettings extends Component {
                                         )}
                                     </FormItem>
                                     <Button htmlType="submit" className="nextBttn">Save</Button>
-                                </Form>
+                                </Form>     
                             </div>
                             <ul>
                                 <li>one</li>
@@ -79,8 +81,12 @@ class OrganizationSettings extends Component {
             </div>
         );
     }
-
 }
+
+OrganizationSettings.propTypes = {
+    history: PropTypes.object,
+    appStore: PropTypes.object,
+};
 
 let form = Form.create({name: 'organization_setting'})(OrganizationSettings);
 export default form;

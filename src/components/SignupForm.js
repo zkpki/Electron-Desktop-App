@@ -11,10 +11,12 @@ class SignupForm extends Component {
 
     handleSignup = (e) => {
         e.preventDefault();
-        const { history, appStore } = this.props;
-        this.props.form.validateFields(async (err, values) => {
-            appStore.setUser(values);
-            history.push('/signup-success');
+        const { history, form } = this.props;
+        form.validateFields(async (err, values) => {
+            if(!err) {
+                
+                history.push('/signup-success');
+            }
         });
     }
 
@@ -38,7 +40,7 @@ class SignupForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        <Button onClick={this.handleSignup} type="default" block>
+                        <Button htmlType="submit" block>
                             Signup
                         </Button>
                     </FormItem>
