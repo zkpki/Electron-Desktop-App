@@ -8,11 +8,10 @@ class SignupSuccess extends Component {
 
     handleNext = () => {
         const { history } = this.props;
-        history.push('/organizationsettings');
+        history.push('/org-settings');
     }
 
     render() {
-
         return (
             <div className="window">
                 <div className="window-content">

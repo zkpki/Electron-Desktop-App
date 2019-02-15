@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from '../components/Logo';
 
 export default class NotFoundPage extends Component {
 
@@ -7,6 +8,7 @@ export default class NotFoundPage extends Component {
     render() {
         return (
             <div>
+                <Logo />
                 404
             </div>
         );

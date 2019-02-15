@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
-    Row, Col, Button, Form, Input, Radio,
+    Button, Form, Input, Radio,
 } from 'antd';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Logo from '../../components/Logo';
 import LeftContentWrapper from '../Auth/SignupSuccessStyle';
@@ -15,7 +14,7 @@ class CreateCA extends Component {
 
     handleCreatingRootCA = () => {
         const { history } = this.props;
-        history.push('/creatingrootca');
+        history.push('/creating-root-ca');
     }
 
     render() {
@@ -59,10 +58,10 @@ class CreateCA extends Component {
             </div>
         );
     }
-
 }
+
 CreateCA.propTypes = {
     history: PropTypes.object,
 };
 
-export default withRouter(CreateCA);
+export default CreateCA;

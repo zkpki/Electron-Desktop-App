@@ -10,7 +10,7 @@ const marginBottom = {
     marginBottom: 15,
 };
 
-export default class OrgSettings extends Component {
+class OrgSettings extends Component {
     render() {
         return (
             <div className="window">
@@ -25,7 +25,10 @@ export default class OrgSettings extends Component {
                                 <Form>
                                     <Row style={marginBottom}>
                                         <Col span={24}>Organization Name</Col>
-                                        <Col span={24}><Input placeholder="Organization Name" /></Col>
+                                        <Col span={24}>
+
+                                            <Input placeholder="Organization Name" />
+                                        </Col>
                                     </Row>
                                     <Row style={marginBottom}>
                                         <Col span={24}>Sub-organization</Col>
@@ -50,3 +53,7 @@ export default class OrgSettings extends Component {
     }
 
 }
+
+const WrappedOrgSetting = Form.create({name: 'org_settings'})(OrgSettings);
+
+export default WrappedOrgSetting;

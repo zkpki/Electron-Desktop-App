@@ -11,23 +11,36 @@ const FormItem = Form.Item;
 
 class SignupForm extends Component {
 
-    handleSignupSuccess = () => {
+    handleSignup = (e) => {
         const { history } = this.props;
-        history.push('/signupsuccess');
+        e.preventDefault();
+        this.props.form.validateFields(async (err, values) => {
+            
+            history.push('/signup-success');
+        });
     }
 
     render() {
+        const { getFieldDecorator } = this.props.form;
         return (
             <LoginFormWrapper>
-                <Form justify="center" align="middle">
+                <Form justify="center" align="middle" onSubmit={this.handleSignup}>
                     <FormItem>
-                        <Input placeholder="Username" />
+                        {getFieldDecorator('username', {
+                            rules: [{ required: true, message: 'Please input your username!' }],
+                        })(
+                            <Input placeholder="Username"  />
+                        )}
                     </FormItem>
                     <FormItem>
-                        <Input placeholder="Password" />
+                        {getFieldDecorator('passcode', {
+                            rules: [{ required: true, message: 'Please input your passcode!' }],
+                        })(
+                            <Input placeholder="Passcode" />
+                        )}
                     </FormItem>
                     <FormItem>
-                        <Button onClick={this.handleSignupSuccess} type="default" block>
+                        <Button onClick={this.handleSignup} type="default" block>
                             Signup
                         </Button>
                     </FormItem>
@@ -35,10 +48,12 @@ class SignupForm extends Component {
             </LoginFormWrapper>
         );
     }
-
 }
+
 SignupForm.propTypes = {
     history: PropTypes.object,
 };
 
-export default withRouter(SignupForm);
+const WrappedSignupForm = Form.create({ name: 'signup_form' })(SignupForm);
+
+export default WrappedSignupForm;

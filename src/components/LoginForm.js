@@ -36,16 +36,17 @@ class LoginForm extends Component {
                     const data = await storage.open(derivedKey, { path: "./" });
                     const myCertificateAuthority = JSON.parse(await data.get());
                     console.log(myCertificateAuthority);
-                    history.push('/loginsuccess');
                 }
                 catch (s_err) {
                     this.setState({
                         error: s_err
-                    })
+                    });
                 } finally {
                     this.setState({
                         processing: false
                     });
+                    //TODO: remove this with proper login
+                    history.push('/login-success');
                 }
             }
         });
@@ -56,7 +57,7 @@ class LoginForm extends Component {
         return (
             <LoginFormWrapper>
                 {this.state.error && <p>Something went wrong!</p>}
-                <Form justify="center" align="middle">
+                <Form justify="center" align="middle" onSubmit={this.handleLogin}>
                     <FormItem>
                         {getFieldDecorator('username', {
                             rules: [{ required: true, message: 'Please input your username!' }],
@@ -72,7 +73,7 @@ class LoginForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        <Button onClick={this.handleLogin} type="default" block>
+                        <Button type="default" htmlType="submit" block>
                             Login
                         </Button>
                     </FormItem>

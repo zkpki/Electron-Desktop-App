@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import {
-    Row, Col, Button,
-} from 'antd';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Logo from '../../components/Logo';
 import LeftContentWrapper from '../Auth/SignupSuccessStyle';
@@ -11,11 +7,6 @@ import { ContentInnerWrapper } from '../../components/styles';
 
 
 class CreatingRootCA extends Component {
-
-    handleOrgSettings = () => {
-        const { history } = this.props;
-        history.push('/organizationsettings');
-    }
 
     render() {
 
@@ -51,4 +42,4 @@ CreatingRootCA.propTypes = {
     history: PropTypes.object,
 };
 
-export default withRouter(CreatingRootCA);
+export default CreatingRootCA;

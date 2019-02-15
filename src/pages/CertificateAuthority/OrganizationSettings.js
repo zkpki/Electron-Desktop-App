@@ -10,11 +10,12 @@ const FormItem = Form.Item;
 
 class OrganizationSettings extends Component {
 
-    handleCreateCA = (e) => {
-        this.props.history.push('/createca')
+    handleSubmit = (e) => {
+        this.props.history.push('/create-ca')
     }
 
     render() {
+        const { getFieldDecorator} = this.props.form;
         return (
             <div className="window">
                 <div className="window-content">
@@ -24,20 +25,36 @@ class OrganizationSettings extends Component {
                             <div className="innerContent">
                             <h3>Org Settings</h3>
                             <div className="formWrapper">
-                                <Form>
+                                <Form onSubmit={this.handleSubmit}>
                                     <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="Organization Name">
-                                        <Input placeholder="ACME Anvils" />
+                                        {getFieldDecorator('orgName', {
+                                            rules: [{ required: true, message: 'Please input your organization name!' }],
+                                        })(
+                                            <Input placeholder="Organization name" />
+                                        )}
                                     </FormItem>
                                     <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="Sub-organization">
-                                        <Input placeholder="Sub-organization" />
+                                        {getFieldDecorator('subOrgName', {
+                                            rules: [{ required: true, message: 'Please input your sub organization name!' }],
+                                        })(
+                                            <Input placeholder="Sub-organization" />
+                                        )}
                                     </FormItem>
                                     <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="Country">
-                                        <Input placeholder="USA" />
+                                        {getFieldDecorator('country', {
+                                            rules: [{ required: true, message: 'Please input your country!' }],
+                                        })(
+                                            <Input placeholder="country" />
+                                        )}
                                     </FormItem>
                                     <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="State">
-                                        <Input />
+                                        {getFieldDecorator('state', {
+                                            rules: [{ required: true, message: 'Please input your state!' }],
+                                        })(
+                                            <Input placeholder="state" />
+                                        )}
                                     </FormItem>
-                                    <Button onClick={this.handleCreateCA} className="nextBttn">Save</Button>
+                                    <Button htmlType="submit" className="nextBttn">Save</Button>
                                 </Form>
                             </div>
                             <ul>

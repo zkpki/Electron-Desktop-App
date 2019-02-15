@@ -44,37 +44,37 @@ export const ROUTES_ITEMS = [
         icon: 'info-circle-o',
         component: SignupPage,
     }, {
-        to: '/loginsuccess',
+        to: '/login-success',
         text: 'LoginSuccess',
         icon: 'info-circle-o',
         component: LoginSuccess,
     }, {
-        to: '/addcertificate',
+        to: '/add-certificate',
         text: 'AddCertificate',
         icon: 'info-circle-o',
         component: AddCertificate,
     }, {
-        to: '/clientauthentication',
+        to: '/client-authentication',
         text: 'ClientAuthentication',
         icon: 'info-circle-o',
         component: ClientAuthentication,
     }, {
-        to: '/serverauthentication',
+        to: '/server-authentication',
         text: 'ServerAuthentication',
         icon: 'info-circle-o',
         component: ServerAuthentication,
     }, {
-        to: '/addcertificatenocsr',
+        to: '/add-certificate-nocsr',
         text: 'AddCertificateNoCSR',
         icon: 'info-circle-o',
         component: AddCertificateNoCSR,
     }, {
-        to: '/issuingcertificate',
+        to: '/issuing-certificate',
         text: 'IssuingCertificate',
         icon: 'info-circle-o',
         component: IssuingCertificate,
     }, {
-        to: '/downloadcertwithkey',
+        to: '/downloadcert-with-key',
         text: 'DownloadCertWithKey',
         icon: 'info-circle-o',
         component: DownloadCertWithKey,
@@ -89,47 +89,47 @@ export const ROUTES_ITEMS = [
         icon: 'info-circle-o',
         component: SignCSR,
     }, {
-        to: '/certificatesuccess',
+        to: '/certificate-success',
         text: 'CertificateSuccess',
         icon: 'info-circle-o',
         component: CertificateSuccess,
     }, {
-        to: '/downloadcertificatewithoutkey',
+        to: '/download-certificate-without-key',
         text: 'DownloadCertificateWithoutKey',
         icon: 'info-circle-o',
         component: DownloadCertificateWithoutKey,
     }, {
-        to: '/certificateerror',
+        to: '/certificate-error',
         text: 'CertificateError',
         icon: 'info-circle-o',
         component: CertificateError,
     }, {
-        to: '/viewcertificates',
+        to: '/view-certificates',
         text: 'ViewCertificates',
         icon: 'info-circle-o',
         component: ViewCertificates,
     }, {
-        to: '/singlecertificate',
+        to: '/single-certificate',
         text: 'SingleCertificate',
         icon: 'info-circle-o',
         component: SingleCertificate,
     }, {
-        to: '/signupsuccess',
+        to: '/signup-success',
         text: 'SignupSuccess',
         icon: 'info-circle-o',
         component: SignupSuccess,
     }, {
-        to: '/createca',
+        to: '/create-ca',
         text: 'CreateCA',
         icon: 'info-circle-o',
         component: CreateCA,
     }, {
-        to: '/creatingrootca',
+        to: '/creating-root-ca',
         text: 'CreatingRootCA',
         icon: 'info-circle-o',
         component: CreatingRootCA,
     }, {
-        to: '/organizationsettings',
+        to: '/org-settings',
         text: 'OrganizationSettings',
         icon: 'info-circle-o',
         component: OrganizationSettings,
@@ -139,7 +139,7 @@ export const ROUTES_ITEMS = [
         icon: 'info-circle-o',
         component: OrgSettings,
     }, {
-        to: '/accountsettings',
+        to: '/account-settings',
         text: 'AccountSettings',
         icon: 'info-circle-o',
         component: AccountSettings,
@@ -156,11 +156,8 @@ export default class Routes extends Component {
     render() {
         return (
             <Switch>
-
                 {ROUTES}
-
                 <Route component={NotFoundPage} />
-
             </Switch>
         );
     }
