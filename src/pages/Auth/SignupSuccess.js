@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Logo from '../components/Logo';
+import Logo from '../../components/Logo';
 import LeftContentWrapper from './SignupSuccessStyle';
-import { ContentInnerWrapper } from '../components/styles';
+import { ContentInnerWrapper } from '../../components/styles';
 import { ImageContainer, NextButton } from './SignupStyle';
 
 class SignupSuccess extends Component {
@@ -11,14 +11,12 @@ class SignupSuccess extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.handleNext = this.handleNext.bind(this);
     }
 
-    handleNext() {
+    handleNext = () => {
         console.log('hello');
         const { history } = this.props;
-        history.push('/createca');
-
+        history.push('/organizationsettings');
     }
 
     render() {

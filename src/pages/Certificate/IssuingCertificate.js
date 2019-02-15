@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {
     Row, Col,
 } from 'antd';
-import Profile from '../components/Profile';
-import Loading from '../components/Loading';
+import Profile from '../../components/Profile';
+import Loading from '../../components/Loading';
 
 export default class IssuingCertificate extends Component {
 

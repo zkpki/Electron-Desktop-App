@@ -5,7 +5,7 @@ import {
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Profile from '../components/Profile';
+import Profile from '../../components/Profile';
 import ClientAuthenticationWrapper from './ClientAuthenticationStyle';
 
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
-import { boxShadow } from '../settings/style-util';
+import { boxShadow } from '../../settings/style-util';
 
 const ClientAuthenticationWrapper = styled.div`
     padding: 50px 100px;  

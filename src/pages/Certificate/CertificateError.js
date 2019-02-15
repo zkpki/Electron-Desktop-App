@@ -3,8 +3,8 @@ import {
     Row, Col,
 } from 'antd';
 
-import Profile from '../components/Profile';
-import { ContentInnerWrapper } from '../components/styles';
+import Profile from '../../components/Profile';
+import { ContentInnerWrapper } from '../../components/styles';
 
 
 export default class CertificateError extends Component {

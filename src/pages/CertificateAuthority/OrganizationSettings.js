@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import {
-    Row, Col, Button, Form, Input,
+    Button, Form, Input,
 } from 'antd';
-import Logo from '../components/Logo';
-import LeftContentWrapper from './SignupSuccessStyle';
-import { ContentInnerWrapper } from '../components/styles';
+import Logo from '../../components/Logo';
+import LeftContentWrapper from '../Auth/SignupSuccessStyle';
+import { ContentInnerWrapper } from '../../components/styles';
 
 const FormItem = Form.Item;
 
-export default class OrganizationSettings extends Component {
+class OrganizationSettings extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
+    handleCreateCA = (e) => {
+        this.props.history.push('/createca')
     }
 
     render() {
@@ -38,13 +37,13 @@ export default class OrganizationSettings extends Component {
                                     <FormItem labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} label="State">
                                         <Input />
                                     </FormItem>
-                                    <Button onClick={this.handleCreatingRootCA} className="nextBttn">Save</Button>
+                                    <Button onClick={this.handleCreateCA} className="nextBttn">Save</Button>
                                 </Form>
                             </div>
                             <ul>
                                 <li>one</li>
-                                <li>two</li>
-                                <li className="active">three</li>
+                                <li className="active">two</li>
+                                <li>three</li>
                             </ul>
                         </div>
                         </LeftContentWrapper>
@@ -60,3 +59,6 @@ export default class OrganizationSettings extends Component {
     }
 
 }
+
+let form = Form.create({name: 'organization_setting'})(OrganizationSettings);
+export default form;

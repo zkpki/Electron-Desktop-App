@@ -4,7 +4,7 @@ import {
 } from 'antd';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Profile from '../components/Profile';
+import Profile from '../../components/Profile';
 import LoginSuccessWrapper from './LoginSuccessStyle';
 
 class LoginSuccess extends Component {

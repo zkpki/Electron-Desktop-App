@@ -3,8 +3,8 @@ import {
     Row, Col, Button, Input, Form, Modal,
 } from 'antd';
 
-import Profile from '../components/Profile';
-import ClientAuthenticationWrapper from './ClientAuthenticationStyle';
+import Profile from '../../components/Profile';
+import ClientAuthenticationWrapper from '../Certificate/ClientAuthenticationStyle';
 
 const marginBottom = {
     marginBottom: 15,

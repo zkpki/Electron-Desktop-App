@@ -4,8 +4,8 @@ import {
 } from 'antd';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Profile from '../components/Profile';
-import { ContentInnerWrapper, FormWrapper } from '../components/styles';
+import Profile from '../../components/Profile';
+import { ContentInnerWrapper, FormWrapper } from '../../components/styles';
 
 const FormItem = Form.Item;
 const { Option } = Select;

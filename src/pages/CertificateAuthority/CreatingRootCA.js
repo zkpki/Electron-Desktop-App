@@ -4,10 +4,10 @@ import {
 } from 'antd';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Logo from '../components/Logo';
-import LeftContentWrapper from './SignupSuccessStyle';
-import Loading from '../components/Loading';
-import { ContentInnerWrapper } from '../components/styles';
+import Logo from '../../components/Logo';
+import LeftContentWrapper from '../Auth/SignupSuccessStyle';
+import Loading from '../../components/Loading';
+import { ContentInnerWrapper } from '../../components/styles';
 
 
 class CreatingRootCA extends Component {
@@ -27,11 +27,10 @@ class CreatingRootCA extends Component {
                             <Logo />
                             <div className="innerContent">
                                 <h2>Creating Root CA</h2>
-                                <Button onClick={this.handleOrgSettings} className="nextBttn">Organization Settings</Button>
                                 <ul>
                                     <li>one</li>
-                                    <li className="active">two</li>
-                                    <li>three</li>
+                                    <li>two</li>
+                                    <li className="active">three</li>
                                 </ul>
                             </div>
                         </LeftContentWrapper>

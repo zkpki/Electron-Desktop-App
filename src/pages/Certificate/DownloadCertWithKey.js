@@ -3,8 +3,8 @@ import {
     Row, Col, Form, Input, Select, Button,
 } from 'antd';
 
-import Profile from '../components/Profile';
-import { ContentInnerWrapper, FormWrapper } from '../components/styles';
+import Profile from '../../components/Profile';
+import { ContentInnerWrapper, FormWrapper } from '../../components/styles';
 
 const DemoInfo = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
 const FormItem = Form.Item;

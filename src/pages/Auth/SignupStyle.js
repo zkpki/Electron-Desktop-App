@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
 import { palette } from 'styled-theme';
-import { borderRadius } from '../settings/style-util';
+import { borderRadius } from '../../settings/style-util';
 
 export const ImageContainer = styled.div`
     margin-bottom: 30px;

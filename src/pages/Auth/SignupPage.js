@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SignupForm from '../components/SignupForm';
-import Footer from '../components/Footer';
-import Logo from '../components/Logo';
+import SignupForm from '../../components/SignupForm';
+import Footer from '../../components/Footer';
+import Logo from '../../components/Logo';
 
 export default class SignupPage extends Component {
     render() {

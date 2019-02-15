@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import LoginForm from '../components/LoginForm';
-import Logo from '../components/Logo';
-import Footer from '../components/Footer';
+import LoginForm from '../../components/LoginForm';
+import Logo from '../../components/Logo';
+import Footer from '../../components/Footer';
 
 export default class HomePage extends Component {
 

@@ -1,37 +1,30 @@
 import React, { Component } from 'react';
-
-import { Layout } from 'antd';
 import { Switch, Route } from 'react-router-dom';
-
-import styles from './ContentRoutes.scss';
-
-import HomePage from '../pages/HomePage';
-import AboutPage from '../pages/AboutPage';
-import SignupPage from '../pages/SignupPage';
-import LoginSuccess from '../pages/LoginSuccess';
-import AddCertificate from '../pages/AddCertificate';
-import ClientAuthentication from '../pages/ClientAuthentication';
-import ServerAuthentication from '../pages/ServerAuthentication';
-import AddCertificateNoCSR from '../pages/AddCertificateNoCSR';
-import IssuingCertificate from '../pages/IssuingCertificate';
-import DownloadCertWithKey from '../pages/DownloadCertWithKey';
-import UploadCSR from '../pages/UploadCSR';
-import SignCSR from '../pages/SignCSR';
-import CertificateSuccess from '../pages/CertificateSuccess';
-import DownloadCertificateWithoutKey from '../pages/DownloadCertificateWithoutKey';
-import CertificateError from '../pages/CertificateError';
-import ViewCertificates from '../pages/ViewCertificates';
-import SingleCertificate from '../pages/SingleCertificate';
-import SignupSuccess from '../pages/SignupSuccess';
-import CreateCA from '../pages/CreateCA';
-import CreatingRootCA from '../pages/CreatingRootCA';
-import OrganizationSettings from '../pages/OrganizationSettings';
-import OrgSettings from '../pages/OrgSettings';
-import AccountSettings from '../pages/AccountSettings';
-
-import NotFoundPage from '../pages/NotFoundPage';
-
-const { Content } = Layout;
+//pages
+import HomePage from './pages/Auth/Login';
+import AboutPage from './pages/content/AboutPage';
+import SignupPage from './pages/Auth/SignupPage';
+import LoginSuccess from './pages/Auth/LoginSuccess';
+import AddCertificate from './pages/Certificate/AddCertificate';
+import ClientAuthentication from './pages/Certificate/ClientAuthentication';
+import ServerAuthentication from './pages/Certificate/ServerAuthentication';
+import AddCertificateNoCSR from './pages/Certificate/AddCertificateNoCSR';
+import IssuingCertificate from './pages/Certificate/IssuingCertificate';
+import DownloadCertWithKey from './pages/Certificate/DownloadCertWithKey';
+import UploadCSR from './pages/Certificate/UploadCSR';
+import SignCSR from './pages/Certificate/SignCSR';
+import CertificateSuccess from './pages/Certificate/CertificateSuccess';
+import DownloadCertificateWithoutKey from './pages/Certificate/DownloadCertificateWithoutKey';
+import CertificateError from './pages/Certificate/CertificateError';
+import ViewCertificates from './pages/Certificate/ViewCertificates';
+import SingleCertificate from './pages/Certificate/SingleCertificate';
+import SignupSuccess from './pages/Auth/SignupSuccess';
+import CreateCA from './pages/CertificateAuthority/CreateCA';
+import CreatingRootCA from './pages/CertificateAuthority/CreatingRootCA';
+import OrganizationSettings from './pages/CertificateAuthority/OrganizationSettings';
+import OrgSettings from './pages/CertificateAuthority/OrgSettings';
+import AccountSettings from './pages/settings/AccountSettings';
+import NotFoundPage from './pages/NotFoundPage';
 
 export const ROUTES_ITEMS = [
     {
@@ -158,21 +151,19 @@ const ROUTES = ROUTES_ITEMS.map(route => (
     <Route key={route.to} path={route.to} exact={route.exact} component={route.component} />
 ));
 
-export default class ContentRoutes extends Component {
+export default class Routes extends Component {
 
     state = {};
 
     render() {
         return (
-            <Content className={styles.content}>
-                <Switch>
+            <Switch>
 
-                    {ROUTES}
+                {ROUTES}
 
-                    <Route component={NotFoundPage} />
+                <Route component={NotFoundPage} />
 
-                </Switch>
-            </Content>
+            </Switch>
         );
     }
 

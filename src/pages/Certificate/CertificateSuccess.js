@@ -5,8 +5,8 @@ import {
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Profile from '../components/Profile';
-import { ContentInnerWrapper } from '../components/styles';
+import Profile from '../../components/Profile';
+import { ContentInnerWrapper } from '../../components/styles';
 
 class CertificateSuccess extends Component {
 

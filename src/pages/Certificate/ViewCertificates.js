@@ -3,7 +3,7 @@ import {
     Row, Col, Table, Divider, Icon,
 } from 'antd';
 import { Link } from 'react-router-dom';
-import Profile from '../components/Profile';
+import Profile from '../../components/Profile';
 import ViewCertificatesWrapper from './ViewCertificatesStyle';
 
 const columns = [{
