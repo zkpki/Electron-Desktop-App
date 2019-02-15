@@ -40,9 +40,10 @@ class LoginForm extends Component {
                     });
                     const myCertificateAuthority = JSON.parse(await data.get());
                     console.log(myCertificateAuthority);
-                    history.push('/login-success');
+                    history.replace('/login-success');
                 }
                 catch (s_err) {
+                    console.log(s_err);
                     this.setState({
                         error: s_err
                     });

@@ -63,7 +63,7 @@ export const ROUTES_ITEMS = [
         icon: 'info-circle-o',
         component: ServerAuthentication,
     }, {
-        to: '/add-certificate-nocsr',
+        to: '/add-certificate-no-csr',
         text: 'AddCertificateNoCSR',
         icon: 'info-circle-o',
         component: AddCertificateNoCSR,

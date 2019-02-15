@@ -17,13 +17,7 @@ const DemoInfo = "Lorem Ipsum is simply dummy text of the printing and typesetti
 
 class ClientAuthentication extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-        this.handleIssueCertificate = this.handleIssueCertificate.bind(this);
-    }
-
-    handleIssueCertificate() {
+    handleIssueCertificate = () => {
         const { history } = this.props;
         history.push('/add-certificate-no-csr');
     }

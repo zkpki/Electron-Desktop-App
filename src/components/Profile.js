@@ -35,7 +35,7 @@ class Profile extends Component {
 
     handleOrgSettings() {
         const { history } = this.props;
-        history.push('/org-settings2');
+        history.push('/org-settings-2');
     }
 
     handleShowInfo() {

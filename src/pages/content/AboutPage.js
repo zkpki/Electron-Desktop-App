@@ -15,7 +15,7 @@ export default class AboutPage extends Component {
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
                         <Logo />
-                        <LoginForm />
+                        <LoginForm history={this.props.history} />
                         <Footer title="What is zkPKI" />
                     </div>
                     <div className="pane">

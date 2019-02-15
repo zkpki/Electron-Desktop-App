@@ -113,7 +113,7 @@ class ServerAuthentication extends Component {
                                 </div>
                             </div>
                             <Button className="advance">Advanced</Button>
-                            <Button onClick={this.handleIssueCertificate} className="issueCertificate">Issue Certificate</Button>
+                            <Button onClick={this.handleIssueCertificate} className="advance">Issue Certificate</Button>
                                         
                         </ClientAuthenticationWrapper>
                     </div>
