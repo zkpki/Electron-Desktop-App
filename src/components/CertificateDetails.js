@@ -34,7 +34,7 @@ class CertificateDetails extends Component {
 
     handleIssueCertificate() {
         const { history } = this.props;
-        history.push('/issuingcertificate');
+        history.push('/issuing-certificate');
     }
 
     render() {

@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import {
-    Row, Col,
-} from 'antd';
-
 import Profile from '../../components/Profile';
 import CertificateDetails from '../../components/CertificateDetails';
 import { ContentInnerWrapper } from '../../components/styles';
@@ -11,24 +7,21 @@ const demoText = 'Lorem Ipsum is simply dummy text of the printing and typesetti
 
 export default class SingleCertificate extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     render() {
 
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile name="CA Common Name" title="Cert Type" link="/" details={demoText} info={demoText} />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ContentInnerWrapper>
-                        <CertificateDetails buttonType="delete" />
-                    </ContentInnerWrapper>
-                </Col>
-            </Row>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile name="CA Common Name" title="Cert Type" link="/" details={demoText} info={demoText} />
+                    </div>
+                    <div className="pane">
+                        <ContentInnerWrapper>
+                            <CertificateDetails buttonType="delete" />
+                        </ContentInnerWrapper>
+                    </div>
+                </div>
+            </div>
         );
     }
 

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {
     Row, Col, Button, Input, Form, Radio, Icon, Select, Checkbox, Modal,
 } from 'antd';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import Profile from '../../components/Profile';
 import ClientAuthenticationWrapper from './ClientAuthenticationStyle';
@@ -24,7 +22,6 @@ class AddCertificateNoCSR extends Component {
             visible: false,
             addExtendedKey: false,
         };
-        this.handleIssueCertificate = this.handleIssueCertificate.bind(this);
     }
 
     showModal = () => {
@@ -46,9 +43,9 @@ class AddCertificateNoCSR extends Component {
         });
     }
 
-    handleIssueCertificate() {
+    handleIssueCertificate = () => {
         const { history } = this.props;
-        history.push('/issuingcertificate');
+        history.push('/issuing-certificate');
     }
 
     render() {
@@ -58,12 +55,13 @@ class AddCertificateNoCSR extends Component {
         }
 
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile title="No CSR: Client Authentication" info={DemoInfo} />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ClientAuthenticationWrapper>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="No CSR: Client Authentication" info={DemoInfo} />
+                    </div>
+                    <div className="pane">
+                        <ClientAuthenticationWrapper>
                         <div className="clientAuthenticationContainer">
                             <div className="required">Required </div>
                             <Form>
@@ -252,15 +250,11 @@ class AddCertificateNoCSR extends Component {
                             </Form>
                         </Modal>
                     </ClientAuthenticationWrapper>
-                </Col>
-            </Row>
+                    </div>
+                </div>
+            </div>
         );
     }
-
 }
 
-AddCertificateNoCSR.propTypes = {
-    history: PropTypes.object,
-};
-
-export default withRouter(AddCertificateNoCSR);
+export default AddCertificateNoCSR;

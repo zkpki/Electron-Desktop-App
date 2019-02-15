@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-
-import { Row, Col, Button } from 'antd';
-
+import React, { Component } from 'react'
+import { Button } from 'antd';
 import Logo from '../../components/Logo';
 import LoginForm from '../../components/LoginForm';
 import Footer from '../../components/Footer';
@@ -44,5 +42,4 @@ export default class AboutPage extends Component {
             </div>
         );
     }
-
 }

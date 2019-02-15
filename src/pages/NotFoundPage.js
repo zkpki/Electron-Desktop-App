@@ -9,7 +9,7 @@ export default class NotFoundPage extends Component {
         return (
             <div>
                 <Logo />
-                404
+                <h2>error</h2>
             </div>
         );
     }

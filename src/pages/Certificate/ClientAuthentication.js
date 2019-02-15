@@ -25,17 +25,18 @@ class ClientAuthentication extends Component {
 
     handleIssueCertificate() {
         const { history } = this.props;
-        history.push('/addcertificatenocsr');
+        history.push('/add-certificate-no-csr');
     }
 
     render() {
 
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile title="No CSR: Client Authentication" info={DemoInfo} />
-                </Col>
-                <Col span={16} className="contentWrapper">
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="No CSR: Client Authentication" info={DemoInfo} />
+                    </div>
+                    <div className="pane">
                     <ClientAuthenticationWrapper>
                         <div className="clientAuthenticationContainer">
                             <div className="required">Required </div>
@@ -73,15 +74,11 @@ class ClientAuthentication extends Component {
                         <Button onClick={this.handleIssueCertificate} className="advance">Advanced</Button>
                         <Button className="issueCertificate">Issue Certificate</Button>
                     </ClientAuthenticationWrapper>
-                </Col>
-            </Row>
+                    </div>
+                </div>
+            </div>
         );
     }
-
 }
 
-ClientAuthentication.propTypes = {
-    history: PropTypes.object,
-};
-
-export default withRouter(ClientAuthentication);
+export default ClientAuthentication;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
-    Row, Col, Form, Input, Select, Button,
+    Form, Input, Select, Button,
 } from 'antd';
-
 import Profile from '../../components/Profile';
 import { ContentInnerWrapper, FormWrapper } from '../../components/styles';
 
@@ -12,19 +11,14 @@ const { Option } = Select;
 
 export default class DownloadCertWithKey extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     render() {
         return (
-            <div>
-                <Row>
-                    <Col span={8}>
-                        <Profile title="Download Certificate" info={DemoInfo} viewCert="/viewcertificates" />
-                    </Col>
-                    <Col span={16} className="contentWrapper">
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="Download Certificate" info={DemoInfo} viewCert="/view-certificates" />
+                    </div>
+                    <div className="pane">
                         <ContentInnerWrapper>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                             <h2>Common Name</h2>
@@ -52,8 +46,8 @@ export default class DownloadCertWithKey extends Component {
                                 </Form>
                             </FormWrapper>
                         </ContentInnerWrapper>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </div>
         );
     }

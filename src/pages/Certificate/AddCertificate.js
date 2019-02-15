@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
-    Row, Col, Button,
+    Button,
 } from 'antd';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Profile from '../../components/Profile';
 import { AddCertificateWrapper, CertificateOption, BorderCertificateOption } from './AddCertificateStyle';
 
@@ -20,53 +18,50 @@ class AddCertificate extends Component {
 
     clientAuthentication() {
         const { history } = this.props;
-        history.push('/clientauthentication');
+        history.push('/client-authentication');
     }
 
     serverAuthentication() {
         const { history } = this.props;
-        history.push('/serverauthentication');
+        history.push('/server-authentication');
     }
 
     downloadCertWithKey() {
         const { history } = this.props;
-        history.push('/downloadcertwithkey');
+        history.push('/download-cert-with-key');
     }
 
     uploadCSR() {
         const { history } = this.props;
-        history.push('/uploadCSR');
+        history.push('/upload-csr');
     }
 
     render() {
 
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile title="CA Common Name" link="/" />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <AddCertificateWrapper>
-                        <BorderCertificateOption>
-                            <h2>No CSR</h2>
-                            <Button onClick={this.clientAuthentication}>Client</Button>
-                            <Button onClick={this.serverAuthentication}>Server</Button>
-                            <Button onClick={this.downloadCertWithKey}>Advanced</Button>
-                        </BorderCertificateOption>
-                        <CertificateOption>
-                            <h2>I have a CSR</h2>
-                            <Button onClick={this.uploadCSR}>Upload CSR</Button>
-                        </CertificateOption>
-                    </AddCertificateWrapper>
-                </Col>
-            </Row>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="CA Common Name" link="/" />
+                    </div>
+                    <div className="pane">
+                        <AddCertificateWrapper>
+                            <BorderCertificateOption>
+                                <h2>No CSR</h2>
+                                <Button onClick={this.clientAuthentication}>Client</Button>
+                                <Button onClick={this.serverAuthentication}>Server</Button>
+                                <Button onClick={this.downloadCertWithKey}>Advanced</Button>
+                            </BorderCertificateOption>
+                            <CertificateOption>
+                                <h2>I have a CSR</h2>
+                                <Button onClick={this.uploadCSR}>Upload CSR</Button>
+                            </CertificateOption>
+                        </AddCertificateWrapper>
+                    </div>
+                </div>
+            </div>
         );
     }
-
 }
 
-AddCertificate.propTypes = {
-    history: PropTypes.object,
-};
-
-export default withRouter(AddCertificate);
+export default AddCertificate;

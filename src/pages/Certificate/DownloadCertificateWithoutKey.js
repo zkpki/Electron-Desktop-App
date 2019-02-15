@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
-    Row, Col, Form, Select, Button,
+    Form, Select, Button,
 } from 'antd';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Profile from '../../components/Profile';
 import { ContentInnerWrapper, FormWrapper } from '../../components/styles';
 
@@ -12,25 +10,20 @@ const { Option } = Select;
 
 class DownloadCertificateWithoutKey extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-        this.handleCertificateError = this.handleCertificateError.bind(this);
-    }
-
-    handleCertificateError() {
+    handleCertificateError = () => {
         const { history } = this.props;
-        history.push('/certificateerror');
+        history.push('/certificate-error');
     }
 
     render() {
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile title="Download Certificate" viewCert="/viewcertificates" />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ContentInnerWrapper>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="Download Certificate" viewCert="/view-certificates" />
+                    </div>
+                    <div className="pane">
+                        <ContentInnerWrapper>
                         <h2>Common Name</h2>
                         <FormWrapper>
                             <Form>
@@ -47,14 +40,11 @@ class DownloadCertificateWithoutKey extends Component {
                             </Form>
                         </FormWrapper>
                     </ContentInnerWrapper>
-                </Col>
-            </Row>
+                    </div>
+                </div>
+            </div>
         );
     }
-
 }
-DownloadCertificateWithoutKey.propTypes = {
-    history: PropTypes.object,
-};
 
-export default withRouter(DownloadCertificateWithoutKey);
+export default DownloadCertificateWithoutKey;

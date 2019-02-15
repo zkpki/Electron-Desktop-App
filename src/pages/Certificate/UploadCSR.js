@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
-    Row, Col, Form, Input, Button, Upload, Icon, message,
+    Form, Input, Button, Upload, Icon, message,
 } from 'antd';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Profile from '../../components/Profile';
 import { ContentInnerWrapper, FormWrapper } from '../../components/styles';
 import { HeadingOne, HeadingTwo } from './UploadCSRStyle';
@@ -39,22 +37,22 @@ class UploadCSR extends Component {
 
     handleSignCSR() {
         const { history } = this.props;
-        history.push('/signCSR');
+        history.push('/sign-csr');
     }
 
     handleCertificateSuccess() {
         const { history } = this.props;
-        history.push('/certificatesuccess');
+        history.push('/certificate-success');
     }
 
     render() {
         return (
-            <div>
-                <Row>
-                    <Col span={8}>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
                         <Profile title="Sign CSR" details={demoText} />
-                    </Col>
-                    <Col span={16} className="contentWrapper">
+                    </div>
+                    <div className="pane">
                         <ContentInnerWrapper>
                             <HeadingOne>Upload CSR</HeadingOne>
                             <FormWrapper>
@@ -78,15 +76,12 @@ class UploadCSR extends Component {
                                 </Form>
                             </FormWrapper>
                         </ContentInnerWrapper>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </div>
         );
     }
-
 }
-UploadCSR.propTypes = {
-    history: PropTypes.object,
-};
 
-export default withRouter(UploadCSR);
+
+export default UploadCSR;

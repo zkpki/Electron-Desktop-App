@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Row, Col, Table, Divider, Icon,
+    Table, Divider, Icon,
 } from 'antd';
 import { Link } from 'react-router-dom';
 import Profile from '../../components/Profile';
@@ -10,7 +10,7 @@ const columns = [{
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <Link to="/SingleCertificate">{text}</Link>,
+    render: text => <Link to="/single-certificate">{text}</Link>,
 }, {
     title: 'Date',
     dataIndex: 'date',
@@ -48,28 +48,24 @@ const data = [{
 
 export default class ViewCertificates extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     render() {
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile title="CA Common Name" link="/" />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ViewCertificatesWrapper>
-                        <Table columns={columns} dataSource={data} />
-                        <div className="issueCertContainer">
-                            <Icon style={{ fontSize: 30, marginBottom: 10 }} type="plus-circle" />
-                            <Link to="/addcertificate">Issue Cert</Link>
-                        </div>
-                    </ViewCertificatesWrapper>
-                </Col>
-            </Row>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="CA Common Name" link="/" />
+                    </div>
+                    <div className="pane">
+                        <ViewCertificatesWrapper>
+                            <Table columns={columns} dataSource={data} />
+                            <div className="issueCertContainer">
+                                <Icon style={{ fontSize: 30, marginBottom: 10 }} type="plus-circle" />
+                                <Link to="/addcertificate">Issue Cert</Link>
+                            </div>
+                        </ViewCertificatesWrapper>
+                    </div>
+                </div>
+            </div>
         );
     }
-
 }

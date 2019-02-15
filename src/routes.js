@@ -73,17 +73,17 @@ export const ROUTES_ITEMS = [
         icon: 'info-circle-o',
         component: IssuingCertificate,
     }, {
-        to: '/downloadcert-with-key',
+        to: '/download-cert-with-key',
         text: 'DownloadCertWithKey',
         icon: 'info-circle-o',
         component: DownloadCertWithKey,
     }, {
-        to: '/uploadCSR',
+        to: '/upload-csr',
         text: 'UploadCSR',
         icon: 'info-circle-o',
         component: UploadCSR,
     }, {
-        to: '/signCSR',
+        to: '/sign-csr',
         text: 'SignCSR',
         icon: 'info-circle-o',
         component: SignCSR,

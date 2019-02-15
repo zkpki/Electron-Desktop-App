@@ -38,12 +38,13 @@ export default class AccountSettings extends Component {
     render() {
 
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile title="CA Common Name" link="/" />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ClientAuthenticationWrapper>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="CA Common Name" link="/" />
+                    </div>
+                    <div className="pane">
+                        <ClientAuthenticationWrapper>
                         <h2 style={{ textAlign: 'center', marginBottom: 50 }}>Account Settings</h2>
                         <div className="clientAuthenticationContainer">
                             <div className="required">Change Passcode </div>
@@ -70,8 +71,9 @@ export default class AccountSettings extends Component {
                             <p>Some contents...</p>
                         </Modal>
                     </ClientAuthenticationWrapper>
-                </Col>
-            </Row>
+                    </div>
+                </div>    
+            </div>
         );
     }
 

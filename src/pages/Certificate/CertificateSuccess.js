@@ -18,28 +18,27 @@ class CertificateSuccess extends Component {
 
     handleDownloadCertificate() {
         const { history } = this.props;
-        history.push('/downloadcertificatewithoutkey');
+        history.push('/download-certificate-without-key');
     }
 
     render() {
         return (
-            <Row>
-                <Col span={8}>
-                    <Profile title="Congratulations" viewCert="/viewcertificates" />
-                </Col>
-                <Col span={16} className="contentWrapper">
-                    <ContentInnerWrapper>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <Button onClick={this.handleDownloadCertificate} className="downloadCertificate">Download Certificate</Button>
-                    </ContentInnerWrapper>
-                </Col>
-            </Row>
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="Congratulations" viewCert="/view-certificates" />
+                    </div>
+                    <div className="pane">
+                        <ContentInnerWrapper>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                            <Button onClick={this.handleDownloadCertificate} className="downloadCertificate">Download Certificate</Button>
+                        </ContentInnerWrapper>
+                    </div>
+                </div>
+            </div>
         );
     }
-
 }
-CertificateSuccess.propTypes = {
-    history: PropTypes.object,
-};
 
-export default withRouter(CertificateSuccess);
+
+export default CertificateSuccess;
