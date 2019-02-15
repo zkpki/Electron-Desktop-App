@@ -24,7 +24,7 @@ const createWindow = () => {
         minWidth: 800,
         minHeight: 600,
         show: false,
-        icon: path.join(__dirname, 'assets/icons/png/64x64.png')
+        icon: path.join(__dirname, '../src/assets/img/appLogo.png')
     });
 
     // mainWindow.maximize();
