@@ -30,6 +30,12 @@ module.exports = {
                     loader: 'babel-loader',
                 },
             },
+            {
+                test: /\.node$/,
+                use: {
+                    loader: 'node-loader',
+                },
+            },
         ],
     },
     resolve: {

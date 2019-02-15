@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     Button, Form, Input, Radio,
 } from 'antd';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import zkpkiModel from '@zkpki/model';
 import Logo from '../../components/Logo';
 import LeftContentWrapper from '../Auth/SignupSuccessStyle';
 import { ContentInnerWrapper } from '../../components/styles';
@@ -69,10 +70,12 @@ class CreateCA extends Component {
     }
 }
 
-CreateCA.propTypes = {
-    history: PropTypes.object,
-    appStore: PropTypes.object,
-};
-
 let form = Form.create({name: 'create_ca'})(CreateCA);
-export default form;
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.app.user,
+        org: state.app.org,
+    };
+}
+export default connect(mapStateToProps)(form);

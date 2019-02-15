@@ -11,10 +11,10 @@ class SignupForm extends Component {
 
     handleSignup = (e) => {
         e.preventDefault();
-        const { history, form } = this.props;
+        const { history, form, setUser } = this.props;
         form.validateFields(async (err, values) => {
             if(!err) {
-                
+                setUser(values);
                 history.push('/signup-success');
             }
         });
@@ -52,7 +52,7 @@ class SignupForm extends Component {
 
 SignupForm.propTypes = {
     history: PropTypes.object,
-    appStore: PropTypes.object
+    setUser: PropTypes.func
 };
 
 const WrappedSignupForm = Form.create({ name: 'signup_form' })(SignupForm);

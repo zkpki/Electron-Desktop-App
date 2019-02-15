@@ -10,6 +10,8 @@ import AppHolder from './styles/commonStyle';
 import theme from './settings/theme';
 import configureStore from './containers/setup';
 
+export const { store } = configureStore();
+
 class App extends Component {
     render() {
         //let myApp = new AppContainer();
@@ -18,7 +20,7 @@ class App extends Component {
                 <HashRouter>
                     <LocaleProvider locale={enUs}>
                         <AppHolder>
-                            <Provider store={configureStore()} >
+                            <Provider store={store} >
                                 <Routes />
                             </Provider>
                         </AppHolder>

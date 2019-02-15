@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {
     Button, Form, Input,
 } from 'antd';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Logo from '../../components/Logo';
 import LeftContentWrapper from '../Auth/SignupSuccessStyle';
 import { ContentInnerWrapper } from '../../components/styles';
+import { setOrg } from '../../containers/actions/appActions';
 
 const FormItem = Form.Item;
 
@@ -13,16 +14,17 @@ class OrganizationSettings extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { history, form } = this.props;
+        const { history, form, setOrg } = this.props;
         form.validateFields(async (err, values) => {
             if(!err) {
+                setOrg(values);
                 history.push('/create-ca');
             }
         });
     }
 
     render() {
-        const { getFieldDecorator} = this.props.form;    
+        const { getFieldDecorator} = this.props.form;
         return (
             <div className="window">
                 <div className="window-content">
@@ -83,10 +85,16 @@ class OrganizationSettings extends Component {
     }
 }
 
-OrganizationSettings.propTypes = {
-    history: PropTypes.object,
-    appStore: PropTypes.object,
-};
+const form = Form.create({name: 'organization_setting'})(OrganizationSettings);
 
-let form = Form.create({name: 'organization_setting'})(OrganizationSettings);
-export default form;
+const mapStateToProps = (state) => {
+    return {
+        user: state.app.user
+    };
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    setOrg: (org) => dispatch(setOrg(org))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(form);
