@@ -20,7 +20,6 @@ import ViewCertificates from './pages/Certificate/ViewCertificates';
 import SingleCertificate from './pages/Certificate/SingleCertificate';
 import SignupSuccess from './pages/Auth/SignupSuccess';
 import CreateCA from './pages/CertificateAuthority/CreateCA';
-import CreatingRootCA from './pages/CertificateAuthority/CreatingRootCA';
 import OrganizationSettings from './pages/CertificateAuthority/OrganizationSettings';
 import OrgSettings from './pages/CertificateAuthority/OrgSettings';
 import AccountSettings from './pages/settings/AccountSettings';
@@ -124,17 +123,12 @@ export const ROUTES_ITEMS = [
         icon: 'info-circle-o',
         component: CreateCA,
     }, {
-        to: '/creating-root-ca',
-        text: 'CreatingRootCA',
-        icon: 'info-circle-o',
-        component: CreatingRootCA,
-    }, {
         to: '/org-settings',
         text: 'OrganizationSettings',
         icon: 'info-circle-o',
         component: OrganizationSettings,
     }, {
-        to: '/orgsettings',
+        to: '/org-settings-2',
         text: 'OrgSettings',
         icon: 'info-circle-o',
         component: OrgSettings,

@@ -9,7 +9,7 @@ class LoginSuccess extends Component {
 
     handleAddCertificate = () => {
         const { history } = this.props;
-        history.push('/addcertificate');
+        history.push('/add-certificate');
     }
 
     render() {

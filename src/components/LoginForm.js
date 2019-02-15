@@ -4,10 +4,12 @@ import {
 } from 'antd';
 import PropTypes from 'prop-types';
 import pbkdf2 from 'pbkdf2';
+import { remote } from 'electron';
 import { LoginFormWrapper } from './styles';
-const { dialog } =  require('electron');
+
 
 const FormItem = Form.Item;
+const app = remote.app;
 
 class LoginForm extends Component {
     state = {
@@ -23,19 +25,22 @@ class LoginForm extends Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-        this.props.form.validateFields(async (err, values) => {
+        const { history, form } = this.props;    
+        form.validateFields(async (err, values) => {
             if (!err) {
                 this.setState({
                     processing: true,
                     error: null
                 });
                 try {
-                    const { history } = this.props;
                     const derivedKey = pbkdf2.pbkdf2Sync(values.passcode, values.username, 10000, 32, 'sha256')
                     const storage = require('@zkpki/storage').file;
-                    const data = await storage.open(derivedKey, { path: "./" });
+                    const data = await storage.open(derivedKey, {
+                        path: app.getPath('userData')
+                    });
                     const myCertificateAuthority = JSON.parse(await data.get());
                     console.log(myCertificateAuthority);
+                    history.push('/login-success');
                 }
                 catch (s_err) {
                     this.setState({
@@ -45,8 +50,6 @@ class LoginForm extends Component {
                     this.setState({
                         processing: false
                     });
-                    //TODO: remove this with proper login
-                    history.push('/login-success');
                 }
             }
         });

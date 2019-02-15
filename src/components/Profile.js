@@ -30,12 +30,12 @@ class Profile extends Component {
 
     handleAccountSettings() {
         const { history } = this.props;
-        history.push('/accountsettings');
+        history.push('/account-settings');
     }
 
     handleOrgSettings() {
         const { history } = this.props;
-        history.push('/orgsettings');
+        history.push('/org-settings2');
     }
 
     handleShowInfo() {
