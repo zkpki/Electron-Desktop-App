@@ -21,6 +21,11 @@ const createWindow = () => {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        minWidth: 800,
+        minHeight: 600,
+        show: false,
+     icon: path.join(__dirname, 'assets/icons/png/64x64.png')
+ })
     });
 
     // mainWindow.maximize();

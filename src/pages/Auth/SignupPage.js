@@ -10,7 +10,7 @@ export default class SignupPage extends Component {
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
                         <Logo />
-                        <SignupForm history={this.props.history} />
+                        <SignupForm history={this.props.history} appStore={this.props.appStore} />
                         <Footer title="What is zkPKI" />
                     </div>
                     <div className="pane">

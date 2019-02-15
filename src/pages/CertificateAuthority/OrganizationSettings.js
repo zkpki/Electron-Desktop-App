@@ -11,7 +11,12 @@ const FormItem = Form.Item;
 class OrganizationSettings extends Component {
 
     handleSubmit = (e) => {
-        this.props.history.push('/create-ca')
+        e.preventDefault();
+        const { history, appStore } = this.props;
+        this.props.form.validateFields(async (err, values) => {
+            appStore.setOrg(values);
+            history.push('/create-ca');
+        });
     }
 
     render() {

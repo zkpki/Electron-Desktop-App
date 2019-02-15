@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 //pages
 import HomePage from './pages/Auth/Login';
@@ -147,19 +147,20 @@ export const ROUTES_ITEMS = [
 
 ];
 
-const ROUTES = ROUTES_ITEMS.map(route => (
-    <Route key={route.to} path={route.to} exact={route.exact} component={route.component} />
-));
-
-export default class Routes extends Component {
-
-    render() {
-        return (
-            <Switch>
-                {ROUTES}
-                <Route component={NotFoundPage} />
-            </Switch>
-        );
-    }
-
+export default ({appStore}) => {
+    return (
+        <Switch>
+            {
+                ROUTES_ITEMS.map(route => 
+                    <Route 
+                        key={route.to} 
+                        path={route.to} 
+                        exact={route.exact} 
+                        render={(props) => <route.component {...props} appStore={appStore} />}
+                     />
+                )
+            }
+            <Route component={NotFoundPage} />
+        </Switch>
+    );
 }

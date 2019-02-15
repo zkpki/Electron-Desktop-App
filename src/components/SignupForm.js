@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {
     Form, Input, Button,
 } from 'antd';
-
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { LoginFormWrapper } from './styles';
 
@@ -12,10 +10,10 @@ const FormItem = Form.Item;
 class SignupForm extends Component {
 
     handleSignup = (e) => {
-        const { history } = this.props;
         e.preventDefault();
+        const { history, appStore } = this.props;
         this.props.form.validateFields(async (err, values) => {
-            
+            appStore.setUser(values);
             history.push('/signup-success');
         });
     }
@@ -52,6 +50,7 @@ class SignupForm extends Component {
 
 SignupForm.propTypes = {
     history: PropTypes.object,
+    appStore: PropTypes.object
 };
 
 const WrappedSignupForm = Form.create({ name: 'signup_form' })(SignupForm);
