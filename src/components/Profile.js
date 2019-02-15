@@ -4,41 +4,33 @@ import {
 } from 'antd';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 import Logo from './Logo';
 import { ProfileWrapper } from './styles';
+import { logout } from '../containers/actions/appActions';
 
 class Profile extends Component {
+    state = {
+        showInfo: false,
+        settingOptions: false,
+    };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            showInfo: false,
-            settingOptions: false,
-        };
-        this.handleAbout = this.handleAbout.bind(this);
-        this.handleAccountSettings = this.handleAccountSettings.bind(this);
-        this.handleOrgSettings = this.handleOrgSettings.bind(this);
-        this.handleShowInfo = this.handleShowInfo.bind(this);
-        this.handleShowSettingOption = this.handleShowSettingOption.bind(this);
-    }
-
-    handleAbout() {
+    handleAbout = () => {
         const { history } = this.props;
         history.push('/about');
     }
 
-    handleAccountSettings() {
+    handleAccountSettings = () => {
         const { history } = this.props;
         history.push('/account-settings');
     }
 
-    handleOrgSettings() {
+    handleOrgSettings = () => {
         const { history } = this.props;
         history.push('/org-settings-2');
     }
 
-    handleShowInfo() {
+    handleShowInfo = () => {
         const value = this.state.showInfo;
         this.setState(
             {
@@ -47,13 +39,18 @@ class Profile extends Component {
         );
     }
 
-    handleShowSettingOption() {
+    handleShowSettingOption = () => {
         const value = this.state.settingOptions;
         this.setState(
             {
                 settingOptions: !value,
             },
         );
+    }
+
+    handleSignout = async () => {
+        this.props.logout();
+        this.props.history.replace('/');
     }
 
     render() {
@@ -109,7 +106,7 @@ class Profile extends Component {
                             <Button onClick={this.handleShowSettingOption} className="settings" icon="setting" />
                         </Col>
                         <Col span={12}>
-                            <Button className="logout" icon="logout">
+                            <Button onClick={this.handleSignout} className="logout" icon="logout">
                                 Signout
                             </Button>
                         </Col>
@@ -149,4 +146,15 @@ Profile.defaultProps = {
     addCSR: null,
 };
 
-export default withRouter(Profile);
+
+const mapStateToprops = (state) => ({
+    derivedKey: state.app.key,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    logout: () => dispatch(logout())
+});
+
+const connectedProfile = connect(mapStateToprops, mapDispatchToProps)(Profile);
+
+export default withRouter(connectedProfile);

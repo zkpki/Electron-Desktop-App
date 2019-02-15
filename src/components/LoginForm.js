@@ -7,7 +7,6 @@ import pbkdf2 from 'pbkdf2';
 import { remote } from 'electron';
 import { LoginFormWrapper } from './styles';
 
-
 const FormItem = Form.Item;
 const app = remote.app;
 
@@ -25,7 +24,7 @@ class LoginForm extends Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-        const { history, form } = this.props;    
+        const { history, form, login } = this.props;    
         form.validateFields(async (err, values) => {
             if (!err) {
                 this.setState({
@@ -39,7 +38,7 @@ class LoginForm extends Component {
                         path: app.getPath('userData')
                     });
                     const myCertificateAuthority = JSON.parse(await data.get());
-                    console.log(myCertificateAuthority);
+                    login(myCertificateAuthority, derivedKey);
                     history.replace('/login-success');
                 }
                 catch (s_err) {
