@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import {
     Form, Input, Button,
 } from 'antd';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import pbkdf2 from 'pbkdf2';
 import { LoginFormWrapper } from './styles';
+const { dialog } =  require('electron');
 
 const FormItem = Form.Item;
 
 class LoginForm extends Component {
+    state = {
+        processing: false,
+        error: null,
+    };
 
     handleSignup = (e) => {
         e.preventDefault();
@@ -21,18 +25,27 @@ class LoginForm extends Component {
         e.preventDefault();
         this.props.form.validateFields(async (err, values) => {
             if (!err) {
-                const { history } = this.props;
-                const derivedKey = pbkdf2.pbkdf2Sync(values.passcode, values.username, 10000, 32, 'sha256')
-                const storage = require('@zkpki/storage').file;
+                this.setState({
+                    processing: true,
+                    error: null
+                });
                 try {
+                    const { history } = this.props;
+                    const derivedKey = pbkdf2.pbkdf2Sync(values.passcode, values.username, 10000, 32, 'sha256')
+                    const storage = require('@zkpki/storage').file;
                     const data = await storage.open(derivedKey, { path: "./" });
                     const myCertificateAuthority = JSON.parse(await data.get());
                     console.log(myCertificateAuthority);
                     history.push('/loginsuccess');
                 }
                 catch (s_err) {
-                    // username/passcode was invalid
-                    windows.alert('Login Failed');
+                    this.setState({
+                        error: s_err
+                    })
+                } finally {
+                    this.setState({
+                        processing: false
+                    });
                 }
             }
         });
@@ -42,6 +55,7 @@ class LoginForm extends Component {
         const { getFieldDecorator } = this.props.form;
         return (
             <LoginFormWrapper>
+                {this.state.error && <p>Something went wrong!</p>}
                 <Form justify="center" align="middle">
                     <FormItem>
                         {getFieldDecorator('username', {
@@ -51,10 +65,10 @@ class LoginForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        {getFieldDecorator('password', {
+                        {getFieldDecorator('passcode', {
                             rules: [{ required: true, message: 'Please input your passcode!' }],
                         })(
-                            <Input placeholder="Password" />
+                            <Input placeholder="Passcode" />
                         )}
                     </FormItem>
                     <FormItem>
@@ -80,4 +94,4 @@ LoginForm.propTypes = {
 
 const WrappedLoginForm = Form.create({ name: 'login_form' })(LoginForm);
 
-export default withRouter(WrappedLoginForm);
+export default WrappedLoginForm;

@@ -153,8 +153,6 @@ const ROUTES = ROUTES_ITEMS.map(route => (
 
 export default class Routes extends Component {
 
-    state = {};
-
     render() {
         return (
             <Switch>

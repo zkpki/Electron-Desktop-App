@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Logo from '../../components/Logo';
 import LeftContentWrapper from './SignupSuccessStyle';
 import { ContentInnerWrapper } from '../../components/styles';
-import { ImageContainer, NextButton } from './SignupStyle';
+import { NextButton } from './SignupStyle';
 
 class SignupSuccess extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     handleNext = () => {
-        console.log('hello');
         const { history } = this.props;
         history.push('/organizationsettings');
     }
@@ -47,11 +39,6 @@ class SignupSuccess extends Component {
             </div>
         );
     }
-
 }
 
-SignupSuccess.propTypes = {
-    history: PropTypes.object,
-};
-
-export default withRouter(SignupSuccess);
+export default SignupSuccess;
