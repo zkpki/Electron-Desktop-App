@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Button,
 } from 'antd';
+import { connect } from 'react-redux';
 import Profile from '../../components/Profile';
 import LoginSuccessWrapper from './LoginSuccessStyle';
 
@@ -31,7 +32,9 @@ class LoginSuccess extends Component {
             </div>
         );
     }
-
 }
 
-export default LoginSuccess;
+const mapStateToProps = (state) => ({
+    CAData: state.app.CAData,
+})
+export default connect(mapStateToProps)(LoginSuccess);
