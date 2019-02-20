@@ -8,6 +8,11 @@ Install required modules:
 $ npm install
 ```
 
+update .npmrc as needed:
+- copy .npmrc.sample file to .npmrc in project root
+- change openssl_dir path to proper openssl dir folder in your computer
+This is needed to build native node modules
+
 Start development mode:
 ```bash
 $ npm start
