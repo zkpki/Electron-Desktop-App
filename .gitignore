@@ -4,3 +4,4 @@ dist
 .eslintcache
 .cache
 .vscode
+.DS_Store
