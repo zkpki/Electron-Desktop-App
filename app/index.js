@@ -7,14 +7,16 @@ const myApp = app || remote.app;
 const isEnvSet = 'ELECTRON_IS_DEV' in process.env;
 const getFromEnv = parseInt(process.env.ELECTRON_IS_DEV, 10) === 1;
 
-require('electron-reload')(__dirname);
-
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
-const isDevMode = isEnvSet ? getFromEnv : !myApp.isPackaged;;
+const isDevMode = isEnvSet ? getFromEnv : !myApp.isPackaged;
+
+if(isDevMode) {
+    require('electron-reload')(__dirname);
+}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -31,7 +33,7 @@ const createWindow = () => {
         title: '0KPKI',
         icon: path.join(__dirname, '../src/assets/img/appLogo.png')
     });
-    //mainWindow.setMenuBarVisibility(false);
+    mainWindow.setMenuBarVisibility(false);
 
     // mainWindow.maximize();
 
