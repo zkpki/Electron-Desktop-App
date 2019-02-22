@@ -1,7 +1,9 @@
-target = 4.0.0
+target = 4.0.5
 arch = x64
 target_arch = x64
 disturl=https://atom.io/download/electron
 runtime = electron
 build_from_source = true
-openssl_dir = /home/yalamber/anaconda2/
+openssl_dir = C:\OpenSSL-Win64
+openssl_1_0_2 = 1
+python = C:\Users\yalamber\AnacondaTwo\python.exe

@@ -1,7 +1,11 @@
 /* eslint-disable global-require */
 
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, remote } from 'electron';
+
+const myApp = app || remote.app;
+const isEnvSet = 'ELECTRON_IS_DEV' in process.env;
+const getFromEnv = parseInt(process.env.ELECTRON_IS_DEV, 10) === 1;
 
 require('electron-reload')(__dirname);
 
@@ -10,7 +14,7 @@ if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
-const isDevMode = process.execPath.match(/[\\/]node_modules\/electron/);
+const isDevMode = isEnvSet ? getFromEnv : !myApp.isPackaged;;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -26,6 +30,7 @@ const createWindow = () => {
         show: false,
         icon: path.join(__dirname, '../src/assets/img/appLogo.png')
     });
+    mainWindow.setMenuBarVisibility(false);
 
     // mainWindow.maximize();
 
