@@ -80,8 +80,8 @@
     }
   },
   "dependencies": {
-    "@zkpki/model": "0.0.0",
-    "@zkpki/storage": "0.0.0",
+    "@zkpki/model": "0.0.2",
+    "@zkpki/storage": "0.0.2",
     "antd": "3.8.4",
     "axios": "0.18.0",
     "bluebird": "3.5.1",

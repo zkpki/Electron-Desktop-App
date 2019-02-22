@@ -28,6 +28,7 @@ const createWindow = () => {
         minWidth: 800,
         minHeight: 600,
         show: false,
+        title: '0KPKI',
         icon: path.join(__dirname, '../src/assets/img/appLogo.png')
     });
     mainWindow.setMenuBarVisibility(false);

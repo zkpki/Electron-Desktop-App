@@ -8,7 +8,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist/**/*']),
         new HtmlWebpackPlugin({
             template: './template/index.html',
-            title: 'My Project',
+            title: '0KPKI',
         }),
     ],
     module: {
