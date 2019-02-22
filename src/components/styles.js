@@ -162,8 +162,7 @@ export const ProgressBarWrapper = styled.div`
 `;
 
 export const ContentInnerWrapper = styled.div`
-    padding: 20px 100px;  
-    height: 100%;
+    padding: 20px;  
     display: flex;
     justify-content: center;
     align-items: center;

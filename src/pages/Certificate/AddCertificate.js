@@ -7,31 +7,22 @@ import { AddCertificateWrapper, CertificateOption, BorderCertificateOption } fro
 
 class AddCertificate extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-        this.clientAuthentication = this.clientAuthentication.bind(this);
-        this.serverAuthentication = this.serverAuthentication.bind(this);
-        this.downloadCertWithKey = this.downloadCertWithKey.bind(this);
-        this.uploadCSR = this.uploadCSR.bind(this);
-    }
-
-    clientAuthentication() {
+    clientAuthentication = () => {
         const { history } = this.props;
         history.push('/client-authentication');
     }
 
-    serverAuthentication() {
+    serverAuthentication = () => {
         const { history } = this.props;
         history.push('/server-authentication');
     }
 
-    downloadCertWithKey() {
+    downloadCertWithKey = () => {
         const { history } = this.props;
         history.push('/download-cert-with-key');
     }
 
-    uploadCSR() {
+    uploadCSR = () => {
         const { history } = this.props;
         history.push('/upload-csr');
     }

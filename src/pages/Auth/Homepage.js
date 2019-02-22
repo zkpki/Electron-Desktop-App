@@ -18,8 +18,10 @@ class Homepage extends Component {
             <div className="window">
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
-                        <Logo />
-                        <LoginForm history={this.props.history} login={this.props.login} />
+                        <div>
+                            <Logo />
+                            <LoginForm history={this.props.history} login={this.props.login} />
+                        </div>
                         <Footer title="What is zkPKI?" />
                     </div>
                     <div className="pane">

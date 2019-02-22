@@ -106,13 +106,10 @@ const AppHolder = styled(Layout)`
         background-color: ${palette('primary', 0)};
         border-color: ${palette('primary', 0)};
     }
-
     .contentWrapper{
         height: 100vh;
         ${boxShadow('0px -5px 5px 1px #9e9e9e')}
-    }
-    
-    
+    }    
 `;
 
 export default AppHolder;

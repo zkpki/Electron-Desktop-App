@@ -9,6 +9,7 @@ import { remote } from 'electron';
 import Logo from '../../components/Logo';
 import LeftContentWrapper from '../Auth/SignupSuccessStyle';
 import { ContentInnerWrapper, ProgressBarWrapper } from '../../components/styles';
+import { login } from '../../containers/actions/appActions';
 
 const app = remote.app;
 const FormItem = Form.Item;
@@ -22,7 +23,7 @@ class CreateCA extends Component {
 
     handleCreateRootCA = (e) => {
         e.preventDefault();
-        const { history, form, org, user } = this.props;
+        const { history, form, org, user, login } = this.props;
         form.validateFields(async (err, values) => {
             if(!err) {
                 try {
@@ -46,7 +47,7 @@ class CreateCA extends Component {
                             path: app.getPath('userData')
                         });
                         await storageData.set(myCertificateAuthority);
-                        console.log('here');
+                        login(myCertificateAuthority, derivedKey);
                         history.replace('/login-success');
                     } else {
                         //TODO show error
@@ -136,5 +137,10 @@ const mapStateToProps = (state) => {
         user: state.app.user,
         org: state.app.org,
     };
-}
-export default connect(mapStateToProps)(form);
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    login: (CAData) => dispatch(login(CAData))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(form);

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { palette } from 'styled-theme';
 
 export const AddCertificateWrapper = styled.div`
-    padding: 20px 100px;  
-    height: 100%;
+    padding: 20px;  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +12,7 @@ export const AddCertificateWrapper = styled.div`
 `;
 
 export const CertificateOption = styled.div`
-    padding: 100px 50px;
+    padding: 50px 20px;
     button{
         display: block;
         width: 200px;

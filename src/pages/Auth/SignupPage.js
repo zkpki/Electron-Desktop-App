@@ -4,6 +4,7 @@ import SignupForm from '../../components/SignupForm';
 import Footer from '../../components/Footer';
 import Logo from '../../components/Logo';
 import {setUser} from '../../containers/actions/appActions';
+import HomeImg from '../../assets/img/Home.png';
 
 class SignupPage extends Component {
     render() {
@@ -12,13 +13,15 @@ class SignupPage extends Component {
             <div className="window">
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
+                        <div>
                         <Logo />
                         <SignupForm history={history} setUser={setUser} />
+                        </div>
                         <Footer title="What is zkPKI?" />
                     </div>
                     <div className="pane">
                         <div className="content-padding">
-                            Hello World
+                            <img src={HomeImg} alt="Home" className="responsiveImg" />
                         </div>
                     </div>
                 </div>

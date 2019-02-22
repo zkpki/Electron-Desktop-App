@@ -2,12 +2,7 @@ import styled from 'styled-components';
 import { palette } from 'styled-theme/dist';
 
 const AboutContainerWrapper = styled.div`
-    padding: 20px 100px;  
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 20px;  
     p{
         text-align: justify;
     }

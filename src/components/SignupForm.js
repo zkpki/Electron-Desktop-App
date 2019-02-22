@@ -40,7 +40,7 @@ class SignupForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        <Button htmlType="submit" block>
+                        <Button htmlType="submit">
                             Signup
                         </Button>
                     </FormItem>
