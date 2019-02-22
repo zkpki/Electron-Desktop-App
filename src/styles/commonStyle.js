@@ -42,13 +42,13 @@ const AppHolder = styled(Layout)`
         background-color: ${palette('primary', 0)};
     }
     .ant-input, .ant-select-selection{
-        ${borderRadius()};
+        ${borderRadius(4)};
         &:hover, &:active, &:focus{
             border-color: ${palette('primary', 0)};
         }
     }
     .ant-btn{
-        ${borderRadius()};
+        ${borderRadius(4)};
         &:hover, &:active, &:focus{
             border-color: ${palette('primary', 0)};
         }

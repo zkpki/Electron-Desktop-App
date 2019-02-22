@@ -76,12 +76,12 @@ class LoginForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        <Button type="default" htmlType="submit" block>
+                        <Button type="primary" htmlType="submit" style={{width: 120}}>
                             Login
                         </Button>
                     </FormItem>
                     <FormItem>
-                        <Button onClick={this.handleSignup} type="default" block>
+                        <Button onClick={this.handleSignup} type="primary" style={{width: 120}}>
                             Signup
                         </Button>
                     </FormItem>

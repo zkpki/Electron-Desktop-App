@@ -9,7 +9,7 @@ export const ImageContainer = styled.div`
 
 export const NextButton = styled(Button)`
     font-size: 18px;
-    ${borderRadius()};
+    ${borderRadius(4)};
     margin-top: 20px;
     height: 40px;
     padding: 0 30px;

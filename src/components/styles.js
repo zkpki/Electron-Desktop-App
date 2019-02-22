@@ -60,7 +60,7 @@ export const ProfileWrapper = styled.div`
             &:hover, &:focus, &:active{
                 color: ${palette('button', 0)};
             }
-            ${borderRadius()};
+            ${borderRadius(4)};
             height: 40px;
             padding: 0 50px;
             margin-top: 50px; 
@@ -171,7 +171,7 @@ export const ContentInnerWrapper = styled.div`
     .ant-btn.downloadCertificate{
         margin-top: 20px; 
         font-size: 20px;
-        ${borderRadius()};
+        ${borderRadius(4)};
         height: 40px;
         padding: 0 30px;
         &:hover, &:focus, &:active{
