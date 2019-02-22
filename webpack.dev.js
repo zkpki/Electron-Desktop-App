@@ -65,12 +65,6 @@ module.exports = merge(common, {
                         },
                     },
                 ],
-            }, {
-                test: /\.(png|jpg|gif)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {},
-                }],
             },
         ],
     },

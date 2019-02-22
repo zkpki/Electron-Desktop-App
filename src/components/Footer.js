@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AboutZkpkiWrapper, StyledLink } from './styles';
+import { CenterdContainer, StyledLink } from './styles';
 
 const Footer = ({ title }) => (
-    <AboutZkpkiWrapper>
+    <CenterdContainer>
         <StyledLink to="/about">
             { title }
         </StyledLink>
-    </AboutZkpkiWrapper>
+    </CenterdContainer>
 );
 
 Footer.propTypes = {

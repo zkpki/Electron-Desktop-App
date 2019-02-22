@@ -31,7 +31,7 @@ const createWindow = () => {
         title: '0KPKI',
         icon: path.join(__dirname, '../src/assets/img/appLogo.png')
     });
-    mainWindow.setMenuBarVisibility(false);
+    //mainWindow.setMenuBarVisibility(false);
 
     // mainWindow.maximize();
 

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LoginForm from '../../components/LoginForm';
 import Logo from '../../components/Logo';
-import Footer from '../../components/Footer';
 import { login } from '../../containers/actions/appActions';
-
+import { StyledLink, CenterdContainer } from '../../components/styles';
+import HomeImg from '../../assets/img/Home.png';
 class Homepage extends Component {
     componentDidMount() {
         if(this.props.CAData) {
@@ -18,11 +18,15 @@ class Homepage extends Component {
                     <div className="pane-one-third sidebar">
                         <Logo />
                         <LoginForm history={this.props.history} login={this.props.login} />
-                        <Footer title="What is zkPKI" />
+                        <CenterdContainer>
+                            <StyledLink to="/about">
+                                What is zkPKI?
+                            </StyledLink>
+                        </CenterdContainer>
                     </div>
                     <div className="pane">
                         <div className="content-padding">
-                            Hello World
+                            <img src={HomeImg} alt="Home" className="responsiveImg" />
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import { palette } from 'styled-theme';
 import { borderRadius } from '../settings/style-util';
 
 export const LogoWrapper = styled.div`
-   padding: 5px 0 10px;
+   padding: 10px 0 10px;
    align-items: center;
    justify-content: center;
    display: flex;
@@ -125,7 +125,7 @@ export const LoginFormWrapper = styled.div`
     padding: 10%;
 `;
 
-export const AboutZkpkiWrapper = styled.div`
+export const CenterdContainer = styled.div`
    align-items: center;
    justify-content: center;
    display: flex;
