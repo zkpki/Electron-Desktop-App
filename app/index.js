@@ -1,14 +1,18 @@
 /* eslint-disable global-require */
 
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, remote } from 'electron';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
-const isDevMode = process.execPath.match(/[\\/]node_modules\/electron/);
+const myApp = app || remote.app;
+const isEnvSet = 'ELECTRON_IS_DEV' in process.env;
+const getFromEnv = parseInt(process.env.ELECTRON_IS_DEV, 10) === 1;
+
+const isDevMode = isEnvSet ? getFromEnv : !myApp.isPackaged;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,8 +23,13 @@ const createWindow = () => {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        minWidth: 800,
+        minHeight: 600,
+        show: false,
+        title: '0KPKI',
+        icon: path.join(__dirname, '../src/assets/img/appLogo.png')
     });
-
+    mainWindow.setMenuBarVisibility(false);
     // mainWindow.maximize();
 
     // and load the index.html of the app.
@@ -36,6 +45,11 @@ const createWindow = () => {
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         mainWindow = null;
+    });
+
+    mainWindow.on('ready-to-show', function() { 
+        mainWindow.show(); 
+        mainWindow.focus(); 
     });
 
     // Open the DevTools.

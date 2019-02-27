@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
-
 import { HashRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { LocaleProvider } from 'antd';
-import ptBR from 'antd/lib/locale-provider/pt_BR';
+import { Provider } from 'react-redux';
+import enUs from 'antd/lib/locale-provider/en_US';
+import { ThemeProvider } from 'styled-components';
+import Routes from './routes';
+import AppHolder from './styles/commonStyle';
+import theme from './settings/theme';
+import configureStore from './containers/setup';
 
-import MainLayout from './layouts/MainLayout';
+export const { store } = configureStore();
 
 class App extends Component {
-
-    state = {};
-
     render() {
+        //let myApp = new AppContainer();
         return (
-            <HashRouter>
-                <LocaleProvider locale={ptBR}>
-                    <MainLayout />
-                </LocaleProvider>
-            </HashRouter>
+            <ThemeProvider theme={theme}>
+                <HashRouter>
+                    <LocaleProvider locale={enUs}>
+                        <AppHolder>
+                            <Provider store={store} >
+                                <Routes />
+                            </Provider>
+                        </AppHolder>
+                    </LocaleProvider>
+                </HashRouter>
+            </ThemeProvider>
         );
     }
 

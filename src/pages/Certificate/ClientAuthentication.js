@@ -1,0 +1,78 @@
+import React, { Component } from 'react';
+import {
+    Row, Col, Button, Input, Form, Radio,
+} from 'antd';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import Profile from '../../components/Profile';
+import ClientAuthenticationWrapper from './ClientAuthenticationStyle';
+
+
+const marginBottom = {
+    marginBottom: 15,
+};
+const RadioGroup = Radio.Group;
+const DemoInfo = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
+class ClientAuthentication extends Component {
+
+    handleIssueCertificate = () => {
+        const { history } = this.props;
+        history.push('/add-certificate-no-csr');
+    }
+
+    render() {
+
+        return (
+            <div className="window">
+                <div className="window-content">
+                    <div className="pane-one-third sidebar">
+                        <Profile title="No CSR: Client Authentication" info={DemoInfo} />
+                    </div>
+                    <div className="pane">
+                    <ClientAuthenticationWrapper>
+                        <div className="clientAuthenticationContainer">
+                            <div className="required">Required </div>
+                            <Form>
+                                <Row style={marginBottom}>
+                                    <Col span={12}>Common Name *</Col>
+                                    <Col span={12}><Input /></Col>
+                                </Row>
+                                <Row style={marginBottom}>
+                                    <Col span={12}>Certificate Duration *</Col>
+                                    <Col span={12}>
+                                        <Input style={{ width: 150, marginRight: 10 }} />
+                                        Days
+                                    </Col>
+                                </Row>
+                                <Row style={marginBottom}>
+                                    <Col span={12}>Subject</Col>
+                                    <Col span={12}>
+                                        <small>litmusbox.com-US-CA-Tech-1234 </small>
+                                        <Button className="editBttn">Edit</Button>
+                                    </Col>
+                                </Row>
+                                <Row style={marginBottom}>
+                                    <Col span={12}>Key Size</Col>
+                                    <Col span={12}>
+                                        <RadioGroup name="radiogroup" defaultValue={1}>
+                                            <Radio value={1}>RSA 2048</Radio>
+                                            <Radio value={2}>RSA 4096</Radio>
+                                        </RadioGroup>
+                                    </Col>
+                                </Row>
+                            </Form>
+                        </div>
+
+                        <Button onClick={this.handleIssueCertificate} className="advance">Advanced</Button>
+                        <Button className="issueCertificate">Issue Certificate</Button>
+                    </ClientAuthenticationWrapper>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default ClientAuthentication;

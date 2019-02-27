@@ -8,7 +8,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist/**/*']),
         new HtmlWebpackPlugin({
             template: './template/index.html',
-            title: 'My Project',
+            title: 'ZKPKI',
         }),
     ],
     module: {
@@ -28,6 +28,12 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
+                },
+            },
+            {
+                test: /\.node$/,
+                use: {
+                    loader: 'node-loader',
                 },
             },
         ],

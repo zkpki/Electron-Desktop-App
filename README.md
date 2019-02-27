@@ -1,35 +1,18 @@
-# Complete Electron, webpack and React boilerplate
+# ZKpki
 
-Sample project containing Electron Forge + webpack + React + React Router + Ant Design + Recharts + Sass and Less.
+Desktop app for ZKpki
 
-## Screenshot
-
-![Screenshot](https://raw.githubusercontent.com/douglasjunior/electron-webpack-react-boilerplate/master/screenshot/screen.png)
-
-## Technologies included
-
-- [Electron Forge](https://electronforge.io/)
-    - The command line interface for ambitious Electron applications.
-- [webpack](https://webpack.js.org/)
-    - A bundler for javascript and friends.
-- [React JS](https://reactjs.org/)
-    - A JavaScript library for building user interfaces.
-- [React Router](https://reacttraining.com/react-router/)
-    - Declarative routing for React.
-- [Ant Design](https://ant.design/)
-    - A design system with values of Nature and Determinacy for better user experience of enterprise applications.
-- [Recharts](http://recharts.org/)
-    - A composable charting library built on React components.
-
-## Download
-
+## Usage:
+Install required modules:
 ```bash
-$ git clone https://github.com/douglasjunior/electron-webpack-react-boilerplate.git
-$ cd electron-webpack-react-boilerplate
 $ npm install
 ```
 
-## Usage:
+update .npmrc as needed:
+- copy .npmrc.sample file to .npmrc in project root
+- change openssl_dir path to proper openssl dir folder in your computer
+This is needed to build native node modules
+- make sure you have openssl 1.0.2 version installed for windows link is https://slproweb.com/download/Win64OpenSSL-1_0_2q.exe
 
 Start development mode:
 ```bash
@@ -58,8 +41,16 @@ $ npm run make:windows
 
 _For a complete list of *Electron Forge* options and requirements, visit the [official docs](https://github.com/electron-userland/electron-forge#usage)._
 
-## License
 
-MIT License
+## Related modules, frameworks and libraries
 
-Copyright (c) 2018 Douglas Nassif Roma Junior
+- [Electron Forge](https://electronforge.io/)
+    - The command line interface for ambitious Electron applications.
+- [webpack](https://webpack.js.org/)
+    - A bundler for javascript and friends.
+- [React JS](https://reactjs.org/)
+    - A JavaScript library for building user interfaces.
+- [React Router](https://reacttraining.com/react-router/)
+    - Declarative routing for React.
+- [Ant Design](https://ant.design/)
+    - A design system with values of Nature and Determinacy for better user experience of enterprise applications.

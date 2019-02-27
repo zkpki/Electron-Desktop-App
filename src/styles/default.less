@@ -1,3 +1,82 @@
 @import "~antd/dist/antd.less";   // import official less entry file
 
-@primary-color: green;
+@primary-color: #335DD3;
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.content-padding {
+    padding: 20px;
+}
+
+.responsiveImg {
+    max-width: 100%;
+}
+
+.window {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+.window-content {
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+    flex: 1;
+}
+.sidebar {
+    background-color: #F3F6FC;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.pane-group {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+.pane {
+    position: relative;
+    overflow-y: auto;
+    flex: 1;
+    border-left: 1px solid #F3F6FC;
+}
+.pane:first-child {
+    border-left: 0;
+}
+
+.pane-sm {
+    max-width: 220px;
+    min-width: 150px;
+    overflow-y: auto;
+}
+
+.pane-mini {
+    width: 80px;
+    flex: none;
+    overflow-y: auto;
+}
+
+.pane-one-fourth {
+    overflow-y: auto;
+    width: 25%;
+    flex: none;
+}
+
+.pane-one-third {
+    overflow-y: auto;
+    width: 33.3%;
+    flex: none;
+}
