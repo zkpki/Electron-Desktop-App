@@ -34,6 +34,7 @@ class AddCertificate extends Component {
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
                         <Profile title="CA Common Name" link="/" />
+                        
                     </div>
                     <div className="pane">
                         <AddCertificateWrapper>

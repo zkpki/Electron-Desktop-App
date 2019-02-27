@@ -3,10 +3,16 @@ import {
     Button,
 } from 'antd';
 import { connect } from 'react-redux';
-import Profile from '../../components/Profile';
+import CASidebar from '../../components/CASidebar';
 import LoginSuccessWrapper from './LoginSuccessStyle';
 
 class LoginSuccess extends Component {
+
+    componentDidMount() {
+        if(!this.props.CAData) {
+            this.props.history.replace('/');
+        }
+    }
 
     handleAddCertificate = () => {
         const { history } = this.props;
@@ -14,11 +20,12 @@ class LoginSuccess extends Component {
     }
 
     render() {
+        let { CAData } = this.props;
         return (
             <div className="window">
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
-                        <Profile title="CA Common Name" link="/" />
+                        <CASidebar CAData={CAData} />
                     </div>
                     <div className="pane">
                         <LoginSuccessWrapper>

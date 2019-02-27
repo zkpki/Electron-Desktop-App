@@ -106,6 +106,7 @@ class CreateCA extends Component {
                                     </ul>
                                 </div>}
                                 {this.state.processing && <h2>Creating Root CA</h2>}
+                                {this.state.error && <h2>Something Went wrong!</h2>}
                             </div>
                         </LeftContentWrapper>
                     </div>
@@ -140,7 +141,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    login: (CAData) => dispatch(login(CAData))
+    login: (CAData, derivedKey) => dispatch(login(CAData, derivedKey))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(form);

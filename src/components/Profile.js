@@ -54,7 +54,6 @@ class Profile extends Component {
     }
 
     render() {
-
         return (
             <ProfileWrapper className="profileContainer">
                 <Logo />
@@ -148,7 +147,7 @@ Profile.defaultProps = {
 
 
 const mapStateToprops = (state) => ({
-    derivedKey: state.app.key,
+    app: state.app
 });
 
 const mapDispatchToProps = (dispatch) => ({

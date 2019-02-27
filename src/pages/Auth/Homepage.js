@@ -40,7 +40,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    login: (CAData) => dispatch(login(CAData))
+    login: (CAData, derivedKey) => dispatch(login(CAData, derivedKey))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
