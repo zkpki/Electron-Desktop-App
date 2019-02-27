@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Button } from 'antd';
+import { connect } from 'react-redux';
 import Logo from '../../components/Logo';
 import LoginForm from '../../components/LoginForm';
 import Footer from '../../components/Footer';
 import AboutContainerWrapper from './AboutPageStyle';
 
-export default class AboutPage extends Component {
+class AboutPage extends Component {
 
     render() {
         return (
@@ -14,9 +15,10 @@ export default class AboutPage extends Component {
                     <div className="pane-one-third sidebar">
                         <div>
                             <Logo />
-                            <LoginForm history={this.props.history} />
+                            {!this.props.CAData && 
+                                <LoginForm history={this.props.history} />
+                            }
                         </div>
-                        <Footer title="What is zkPKI?" />
                     </div>
                     <div className="pane">
                         <AboutContainerWrapper>
@@ -34,3 +36,9 @@ export default class AboutPage extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => ({
+    CAData: state.app.CAData,
+});
+
+export default connect(mapStateToProps)(AboutPage);

@@ -21,10 +21,10 @@ let mainWindow;
 const createWindow = () => {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 800,
-        minWidth: 800,
-        minHeight: 800,
+        width: 850,
+        height: 650,
+        minWidth: 850,
+        minHeight: 650,
         show: false,
         title: '0KPKI',
         icon: path.join(__dirname, '../src/assets/img/appLogo.png')

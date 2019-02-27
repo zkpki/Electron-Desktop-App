@@ -2,22 +2,28 @@ import React, { Component } from 'react';
 import {
     Row, Col, Button, Input, Form, Modal,
 } from 'antd';
-
-import Profile from '../../components/Profile';
+import { connect } from 'react-redux';
+import CASidebar from '../../components/CASidebar';
 import ClientAuthenticationWrapper from '../Certificate/ClientAuthenticationStyle';
 
 const marginBottom = {
     marginBottom: 15,
 };
 
-export default class AccountSettings extends Component {
+class AccountSettings extends Component {
 
     constructor(props) {
         super(props);
         this.state = { visible: false };
     }
 
-    showModal = () => {
+    componentDidMount() {
+        if(!this.props.CAData) {
+            this.props.history.replace('/');
+        }
+    }
+
+    showDeleteModal = () => {
         this.setState({
             visible: true,
         });
@@ -35,20 +41,24 @@ export default class AccountSettings extends Component {
         });
     }
 
-    render() {
+    handlePasscodeChange = () => {
 
+    }
+
+    render() {
+        let { CAData } = this.props;
         return (
             <div className="window">
                 <div className="window-content">
                     <div className="pane-one-third sidebar">
-                        <Profile title="CA Common Name" link="/" />
+                        <CASidebar CAData={CAData} />
                     </div>
                     <div className="pane">
                         <ClientAuthenticationWrapper>
                         <h2 style={{ textAlign: 'center', marginBottom: 50 }}>Account Settings</h2>
                         <div className="clientAuthenticationContainer">
                             <div className="required">Change Passcode </div>
-                            <Form>
+                            <Form onSubmit={this.handlePasscodeChange}>
                                 <Row style={marginBottom}>
                                     <Col span={24}><Input placeholder="Passcode" /></Col>
                                 </Row>
@@ -60,7 +70,7 @@ export default class AccountSettings extends Component {
 
                         <Button className="advance">Save</Button>
 
-                        <Button onClick={this.showModal} className="advance deleteAccount">Delete Account</Button>
+                        <Button onClick={this.showDeleteModal} className="advance deleteAccount">Delete Account</Button>
                         <Modal
                             title="Are you sure?"
                             visible={this.state.visible}
@@ -78,3 +88,11 @@ export default class AccountSettings extends Component {
     }
 
 }
+
+
+
+const mapStateToProps = (state) => ({
+    CAData: state.app.CAData,
+});
+
+export default connect(mapStateToProps)(AccountSettings);
