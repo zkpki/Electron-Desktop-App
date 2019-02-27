@@ -47,7 +47,7 @@ class CreateCA extends Component {
                             path: app.getPath('userData')
                         });
                         await storageData.set(myCertificateAuthority);
-                        login(myCertificateAuthority, derivedKey);
+                        login(JSON.parse(myCertificateAuthority), derivedKey);
                         history.replace('/login-success');
                     } else {
                         //TODO show error

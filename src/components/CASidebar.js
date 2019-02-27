@@ -27,9 +27,13 @@ class CASidebar extends Component {
 
     downloadCA = (pemData) => {
         let toLocalPath = path.resolve(app.getPath("desktop"), 'CA.pem');
-        let userChosenPath = dialog.showSaveDialog({ defaultPath: toLocalPath });
+        let userChosenPath = dialog.showSaveDialog({ defaultPath: toLocalPath, filters: [{
+            name: 'PEM file',
+            extensions: ['pem']
+          }] 
+        });
         if(userChosenPath){
-            fs.writeFile(userChosenPath, pemData, () => {
+            fs.writeFile(userChosenPath+'.pem', pemData, () => {
                 alert('saved File');
             });
         }
