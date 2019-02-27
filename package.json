@@ -18,7 +18,7 @@
     "publish": "electron-forge publish",
     "lint": "eslint . --cache --color"
   },
-  "keywords": [],
+  "keywords": ["zero knowledge", "PKI"],
   "author": {
     "name": "ZKPKI"
   },
@@ -38,17 +38,10 @@
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "yarn",
+        "packageManager": false,
         "asar": true,
         "arch": "all",
-        "ignore": [
-          ".vscode",
-          ".cache",
-          "src",
-          "template",
-          "out",
-          "screenshot"
-        ]
+        "ignore": []
       },
       "electronWinstallerConfig": {
         "name": "ZKPKI"
@@ -66,7 +59,7 @@
       "electronInstallerRedhat": {},
       "github_repository": {
         "owner": "zkpki",
-        "name": "Electron-Desktop-App"
+        "name": "desktop-app"
       },
       "windowsStoreConfig": {
         "packageName": "com.zkpki",
@@ -85,8 +78,6 @@
     "antd": "3.8.4",
     "axios": "0.18.0",
     "bluebird": "3.5.1",
-    "electron-compile": "6.4.4",
-    "electron-reload": "^1.4.0",
     "electron-squirrel-startup": "1.0.0",
     "moment-timezone": "0.5.21",
     "pbkdf2": "^3.0.17",
