@@ -37,5 +37,5 @@ module.exports = {
     },
     externals: {
         'node-webcrypto-ossl': 'require("node-webcrypto-ossl")',
-    }
+    },
 };
