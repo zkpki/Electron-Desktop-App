@@ -13,6 +13,7 @@ update .npmrc as needed:
 - change openssl_dir path to proper openssl dir folder in your computer
 This is needed to build native node modules
 - make sure you have openssl 1.0.2 version installed for windows link is https://slproweb.com/download/Win64OpenSSL-1_0_2q.exe
+- for windows copy msvcr120.dll and libaey32.dll files to the package
 
 Start development mode:
 ```bash
