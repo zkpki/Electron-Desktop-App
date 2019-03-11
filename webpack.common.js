@@ -31,10 +31,6 @@ module.exports = {
                     loader: 'babel-loader',
                 },
             },
-            {
-                test: /\.node$/,
-                loader: 'native-ext-loader'
-            },
         ],
     },
     resolve: {
